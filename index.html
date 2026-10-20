@@ -6,7 +6,7 @@
 <title>Ramesh G</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Ramesh G from Perumanallur, Tiruppur: profile, quick facts, hobbies and photo albums.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ramesh G","image":"profile.jpg","description":"Ramesh G from Perumanallur, Tiruppur district. Cricket lover, bike rider and home cook, working in Chennai.","homeLocation":{"@type":"Place","name":"Perumanallur, Tiruppur, Tamil Nadu, India"},"knowsLanguage":["Tamil","English"],"jobTitle":"Technology Engineer","worksFor":{"@type":"Organization","name":"Purpleslate Private Limited","url":"https://purpleslate.com/"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Kalaignar Karunanidhi Institute of Technology","url":"https://kitcbe.com/"},{"@type":"CollegeOrUniversity","name":"Nandha Arts and Science College","url":"https://www.nandhaarts.org/"},{"@type":"School","name":"Shree Gurukulam Higher Secondary School","url":"https://shreegurukulam.org/"},{"@type":"School","name":"Sakthi Vigneswara Kalvi Nilayam Higher Secondary School","url":"https://sakthivigneswarakn.in/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ramesh G","image":"profile.jpg","description":"Ramesh G from Perumanallur, Tiruppur district. Cricket lover, nature lover and home cook who enjoys travelling by bike, working in Chennai.","homeLocation":{"@type":"Place","name":"Perumanallur, Tiruppur, Tamil Nadu, India"},"knowsLanguage":["Tamil","English"],"jobTitle":"Technology Engineer","worksFor":{"@type":"Organization","name":"Purpleslate Private Limited","url":"https://purpleslate.com/"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Kalaignar Karunanidhi Institute of Technology","url":"https://kitcbe.com/"},{"@type":"CollegeOrUniversity","name":"Nandha Arts and Science College","url":"https://www.nandhaarts.org/"},{"@type":"School","name":"Shree Gurukulam Higher Secondary School","url":"https://shreegurukulam.org/"},{"@type":"School","name":"Sakthi Vigneswara Kalvi Nilayam Higher Secondary School","url":"https://sakthivigneswarakn.in/"}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Madurai:wght@500;600&display=swap">
@@ -110,7 +110,7 @@ h2{font-size:1.65rem;font-weight:800;letter-spacing:-.02em}
 
 .hobbies{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
 .hobby{border-radius:var(--r);overflow:hidden;background:var(--panel);display:flex;flex-direction:column}
-.hobby .pic{height:170px;display:grid;place-items:center;background:var(--panel-2);color:var(--accent);position:relative;overflow:hidden}
+.hobby .pic{height:150px;display:grid;place-items:center;background:var(--panel-2);color:var(--accent);position:relative;overflow:hidden}
 .hobby .pic img{width:100%;height:100%;object-fit:cover}
 .hobby .pic svg{width:56px;height:56px}
 .hobby .body{padding:16px 18px 20px}
@@ -178,6 +178,40 @@ h2{font-size:1.65rem;font-weight:800;letter-spacing:-.02em}
 @media (max-width:1100px){.places{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){.fav,.home{grid-template-columns:1fr}.song em{display:none}}
 @media (max-width:440px){.places{grid-template-columns:1fr}}
+.hobby .pic.music-pic{display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:8px;padding:16px;height:auto;min-height:150px;background:linear-gradient(135deg,var(--accent-soft),var(--panel-2))}
+.cbtn{font:inherit;font-size:.8rem;font-weight:700;border:0;background:var(--bg);color:var(--accent);border-radius:999px;padding:6px 11px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.08);display:inline-flex;align-items:center;gap:6px}
+.cbtn:hover{background:var(--accent);color:var(--bg)}
+.hobby .pic .cbtn svg{width:12px;height:12px}
+.pic-hint{width:100%;text-align:center;font-size:.75rem;color:var(--muted);margin-top:2px}
+.hobby .pic svg.theatre,.hobby .pic svg.meal{width:100%;height:100%}
+.hobby .pic.meal-pic{background:#e9f3e3;padding:8px}
+.cm-back{position:fixed;inset:0;z-index:55;background:rgba(10,14,12,.55);display:grid;place-items:center;padding:calc(20px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.cm{background:var(--bg);color:var(--ink);border-radius:24px;max-width:460px;width:100%;padding:26px 26px 22px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);position:relative}
+.cm .cm-x{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:0;background:var(--panel);font-size:1.3rem;cursor:pointer;color:var(--ink)}
+.cm .cm-av{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.1rem;margin-bottom:12px}
+.cm h3{font-size:1.45rem;font-weight:800}
+.cm .cm-t{color:var(--accent);font-weight:700;font-size:.9rem;margin:4px 0 14px}
+.cm ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.cm li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;font-size:.95rem;border-top:1px solid var(--line);padding-top:10px}
+.cm li b{font-weight:700}
+.cm li span{color:var(--muted)}
+.cm .cm-yt{display:inline-flex;margin-top:16px;align-items:center;gap:8px;background:#e62117;color:#fff;text-decoration:none;font-weight:700;font-size:.92rem;padding:10px 16px;border-radius:999px}
+.ticket{display:flex;align-items:stretch;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#2a1d0b,#5a3a10);color:#fff4d8}
+.ticket .tk-main{flex:1;padding:14px 16px;min-width:0}
+.ticket .tk-main small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#f2b13e;font-weight:700}
+.ticket .tk-main b{display:block;font-size:1.2rem;font-weight:800;margin:2px 0}
+.ticket .tk-main span{font-size:.82rem;opacity:.8}
+.ticket .tk-stub{width:92px;border-left:2px dashed rgba(255,244,216,.45);display:grid;place-items:center;text-align:center;font-weight:800;font-size:.78rem;letter-spacing:.1em;color:#f2b13e;padding:8px}
+.fcard .theatre-banner{border-radius:14px;overflow:hidden;height:170px}
+.fcard .theatre-banner svg{width:100%;height:100%;display:block}
+.fcard .meal-banner{background:#e9f3e3;border-radius:14px;padding:10px}
+.fcard .meal-banner svg{width:100%;height:190px;display:block}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.watch{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:24px;align-items:center}
+.watch video{width:100%;aspect-ratio:16/9;border-radius:var(--r);background:#000;display:block;box-shadow:var(--shade)}
+.watch p{color:var(--muted);margin:10px 0 0;max-width:40ch}
+@media (max-width:760px){.watch{grid-template-columns:1fr}}
 .strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);gap:12px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
 .strip .imgbtn{height:300px;border-radius:18px;scroll-snap-align:start}
 .bike-note{color:var(--muted);margin:0;max-width:60ch}
@@ -233,7 +267,7 @@ footer{padding-block:28px 44px;color:var(--muted);font-size:.92rem;display:flex;
   <div>
     <p class="hello" lang="ta">வணக்கம்</p>
     <h1>Ramesh G</h1>
-    <p class="role">Cricket lover · Bike rider · Home cook <span class="verified"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1 3 1 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1L2.7 15.5l1-3-1-3 2.8-1.6.9-3.1 3.2.3z"/><path d="M8.5 12.3l2.4 2.4 4.6-4.9" stroke="var(--bg)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Official page</span></p>
+    <p class="role">Cricket lover · Nature lover · Home cook <span class="verified"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 2.1 3.2-.3.9 3.1 2.8 1.6-1 3 1 3-2.8 1.6-.9 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.9-3.1L2.7 15.5l1-3-1-3 2.8-1.6.9-3.1 3.2.3z"/><path d="M8.5 12.3l2.4 2.4 4.6-4.9" stroke="var(--bg)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Official page</span></p>
   </div>
   <button class="share" id="share" type="button" aria-label="Copy link to this page">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Share</span>
@@ -243,6 +277,7 @@ footer{padding-block:28px 44px;color:var(--muted);font-size:.92rem;display:flex;
 <nav class="tabsbar" aria-label="Sections">
   <div class="wrap tabs" id="tabs">
     <a href="#overview" aria-current="true">Overview</a>
+    <a href="#watch">Video</a>
     <a href="#about">About</a>
     <a href="#hobbies">Hobbies</a>
     <a href="#journey">Journey</a>
@@ -278,6 +313,19 @@ footer{padding-block:28px 44px;color:var(--muted);font-size:.92rem;display:flex;
       <a class="fact" href="#hobbies"><div class="k">Hobbies<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div><div class="v">Cricket</div><div class="s">Music, movies, cooking</div></a>
     </div>
   </div>
+
+  <section id="watch">
+    <div class="wrap watch">
+      <video controls playsinline preload="metadata" poster="ramesh-story-poster.jpg" aria-label="Ramesh G photo story video">
+        <source src="ramesh-story.mp4" type="video/mp4">
+      </video>
+      <div>
+        <p class="eyebrow">Watch</p>
+        <h2>My story in 36 seconds</h2>
+        <p>Beaches, bike trips, cricket and home, all in one short film made from his own photos.</p>
+      </div>
+    </div>
+  </section>
 
   <section id="about">
     <div class="wrap about">
@@ -320,19 +368,42 @@ footer{padding-block:28px 44px;color:var(--muted);font-size:.92rem;display:flex;
       <div class="sec-h"><div><p class="eyebrow">Hobbies &amp; interests</p><h2>What keeps him happy</h2></div></div>
       <ul class="hobbies">
         <li class="hobby">
-          <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></div>
-          <div class="body"><h3>Music</h3><p>Loves good Tamil songs and picks music to match his mood.</p><ul class="tags" aria-label="Favourite composers"><li>A. R. Rahman</li><li>Ilaiyaraaja</li><li>G. V. Prakash</li><li>Pradeep Kumar</li><li>Sean Roldan</li></ul></div>
+          <div class="pic music-pic"><button class="cbtn" type="button" data-c="rahman">A. R. Rahman<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><button class="cbtn" type="button" data-c="raja">Ilaiyaraaja<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><button class="cbtn" type="button" data-c="gvp">G. V. Prakash<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><button class="cbtn" type="button" data-c="pradeep">Pradeep Kumar<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><button class="cbtn" type="button" data-c="sean">Sean Roldan<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><span class="pic-hint">Tap a name to know more</span></div>
+          <div class="body"><h3>Music</h3><p>Loves good Tamil songs and picks music to match his mood.</p></div>
         </li>
         <li class="hobby">
           <div class="pic"><img src="cricket-ground-thumb.jpg" alt="Ramesh with a bat on the cricket ground" style="object-position:50% 40%"></div>
           <div class="body"><h3>Cricket</h3><p>Loves playing cricket, from local grounds to tournaments.</p></div>
         </li>
         <li class="hobby">
-          <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 9h18M7 5l2 4M12 5l2 4M17 5l2 4"/></svg></div>
+          <div class="pic"><svg class="theatre" viewBox="0 0 320 170" role="img" aria-label="Illustration of a cinema hall with a glowing screen and rows of seats" preserveAspectRatio="xMidYMid slice">
+<rect width="320" height="170" fill="#151a24"/>
+<path d="M40 18 H280 L262 78 H58 Z" fill="#f4e3b2"/><path d="M40 18 H280 L262 78 H58 Z" fill="url(#glow)"/>
+<defs><radialGradient id="glow" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fff7da"/><stop offset="1" stop-color="#e2b84d" stop-opacity=".6"/></radialGradient>
+<linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2c2" stop-opacity=".22"/><stop offset="1" stop-color="#fff2c2" stop-opacity="0"/></linearGradient></defs>
+<path d="M58 78 H262 L320 170 H0 Z" fill="url(#beam)"/>
+<path d="M0 0 H40 L58 78 L0 120Z M320 0 H280 L262 78 L320 120Z" fill="#8f1d2c"/>
+<g fill="#7d1a26"><rect x="20" y="104" width="34" height="22" rx="7"/><rect x="62" y="104" width="34" height="22" rx="7"/><rect x="104" y="104" width="34" height="22" rx="7"/><rect x="146" y="104" width="34" height="22" rx="7"/><rect x="188" y="104" width="34" height="22" rx="7"/><rect x="230" y="104" width="34" height="22" rx="7"/><rect x="272" y="104" width="34" height="22" rx="7"/></g>
+<g fill="#a52637"><rect x="4" y="136" width="38" height="28" rx="8"/><rect x="50" y="136" width="38" height="28" rx="8"/><rect x="96" y="136" width="38" height="28" rx="8"/><rect x="142" y="136" width="38" height="28" rx="8"/><rect x="188" y="136" width="38" height="28" rx="8"/><rect x="234" y="136" width="38" height="28" rx="8"/><rect x="280" y="136" width="38" height="28" rx="8"/></g>
+<g transform="translate(134 30)"><path d="M10 0 L42 0 L36 34 L16 34Z" fill="#fff"/><path d="M14 0 L18 34 M26 0 L26 34 M38 0 L34 34" stroke="#d64535" stroke-width="4"/><g fill="#fde7a6"><circle cx="12" cy="-2" r="7"/><circle cx="22" cy="-6" r="8"/><circle cx="33" cy="-4" r="8"/><circle cx="41" cy="0" r="6"/></g></g>
+</svg></div>
           <div class="body"><h3>Movies</h3><p>Loves all kinds of good movies, best enjoyed in the theatre. Big fan of Vijay and Rajinikanth.</p></div>
         </li>
         <li class="hobby">
-          <div class="pic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18v2a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7z"/><path d="M8 7c0-1 1-1.5 1-2.5M12 7c0-1 1-1.5 1-2.5M16 7c0-1 1-1.5 1-2.5"/></svg></div>
+          <div class="pic meal-pic"><svg class="meal" viewBox="0 0 400 210" role="img" aria-label="Illustration of a South Indian meal on a banana leaf: rice, sambar, rasam, poriyal, curd and appalam">
+<path d="M8 105 C70 18 330 6 394 52 C402 90 402 130 394 158 C330 204 70 192 8 105Z" fill="#2f7d32"/>
+<path d="M8 105 C70 30 330 18 394 60 L394 105 Z" fill="#3b9440"/>
+<path d="M14 105 H394" stroke="#a5d68a" stroke-width="3"/>
+<g stroke="#4fa94f" stroke-width="1.5" opacity=".8"><path d="M60 105 L90 50"/><path d="M120 105 L150 40"/><path d="M180 105 L210 34"/><path d="M240 105 L270 32"/><path d="M300 105 L330 36"/><path d="M60 105 L90 160"/><path d="M120 105 L150 170"/><path d="M180 105 L210 176"/><path d="M240 105 L270 178"/><path d="M300 105 L330 174"/></g>
+<ellipse cx="248" cy="118" rx="72" ry="40" fill="#fbf8ee"/><ellipse cx="240" cy="110" rx="50" ry="24" fill="#ffffff"/>
+<g fill="#ece6d2"><circle cx="220" cy="120" r="2"/><circle cx="262" cy="104" r="2"/><circle cx="280" cy="128" r="2"/><circle cx="236" cy="134" r="2"/><circle cx="296" cy="112" r="2"/><circle cx="205" cy="104" r="2"/></g>
+<circle cx="104" cy="70" r="33" fill="#cfd5dc"/><circle cx="104" cy="70" r="26" fill="#c46f1c"/><circle cx="96" cy="64" r="4" fill="#e9a04a"/><circle cx="112" cy="76" r="3" fill="#7a9a2a"/><circle cx="108" cy="60" r="3" fill="#e9a04a"/>
+<circle cx="104" cy="146" r="29" fill="#cfd5dc"/><circle cx="104" cy="146" r="22" fill="#9c3a17"/><circle cx="98" cy="142" r="2.5" fill="#3c7d2a"/><circle cx="110" cy="150" r="2.5" fill="#3c7d2a"/>
+<path d="M160 58 c10-20 50-22 62-4 c6 12-8 22-30 22 c-22 0-38-6-32-18z" fill="#a6c94a"/><g fill="#f08a24"><circle cx="178" cy="56" r="3"/><circle cx="196" cy="62" r="3"/><circle cx="208" cy="52" r="3"/></g><g fill="#f6efc9"><circle cx="186" cy="66" r="2"/><circle cx="202" cy="70" r="2"/></g>
+<circle cx="350" cy="150" r="25" fill="#cfd5dc"/><circle cx="350" cy="150" r="19" fill="#fffdf4"/>
+<circle cx="352" cy="64" r="28" fill="#f1cf74"/><circle cx="352" cy="64" r="28" fill="none" stroke="#e1b553" stroke-width="2"/><g fill="#d9a441"><circle cx="342" cy="56" r="2"/><circle cx="360" cy="70" r="2"/><circle cx="350" cy="78" r="2"/><circle cx="364" cy="54" r="2"/></g>
+<path d="M150 160 c6-8 22-8 28 0 c-6 8-22 8-28 0z" fill="#c0392b"/>
+</svg></div>
           <div class="body"><h3>Cooking</h3><p>Cooks South Indian vegetarian food (sambar, rasam, poriyal) and shares it with friends.</p></div>
         </li>
       </ul>
@@ -345,9 +416,19 @@ footer{padding-block:28px 44px;color:var(--muted);font-size:.92rem;display:flex;
       <div class="fav">
         <div class="fcard">
           <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 9h18M7 5l2 4M12 5l2 4M17 5l2 4"/></svg></span>Movies &amp; stars</h3>
-          <p>Enjoys all kinds of good movies, and nothing beats watching them in a theatre.</p>
+          <div class="theatre-banner"><svg class="theatre" viewBox="0 0 320 170" role="img" aria-label="Illustration of a cinema hall with a glowing screen and rows of seats" preserveAspectRatio="xMidYMid slice">
+<rect width="320" height="170" fill="#151a24"/>
+<path d="M40 18 H280 L262 78 H58 Z" fill="#f4e3b2"/><path d="M40 18 H280 L262 78 H58 Z" fill="url(#glow2)"/>
+<defs><radialGradient id="glow2" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fff7da"/><stop offset="1" stop-color="#e2b84d" stop-opacity=".6"/></radialGradient>
+<linearGradient id="beam2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2c2" stop-opacity=".22"/><stop offset="1" stop-color="#fff2c2" stop-opacity="0"/></linearGradient></defs>
+<path d="M58 78 H262 L320 170 H0 Z" fill="url(#beam2)"/>
+<path d="M0 0 H40 L58 78 L0 120Z M320 0 H280 L262 78 L320 120Z" fill="#8f1d2c"/>
+<g fill="#7d1a26"><rect x="20" y="104" width="34" height="22" rx="7"/><rect x="62" y="104" width="34" height="22" rx="7"/><rect x="104" y="104" width="34" height="22" rx="7"/><rect x="146" y="104" width="34" height="22" rx="7"/><rect x="188" y="104" width="34" height="22" rx="7"/><rect x="230" y="104" width="34" height="22" rx="7"/><rect x="272" y="104" width="34" height="22" rx="7"/></g>
+<g fill="#a52637"><rect x="4" y="136" width="38" height="28" rx="8"/><rect x="50" y="136" width="38" height="28" rx="8"/><rect x="96" y="136" width="38" height="28" rx="8"/><rect x="142" y="136" width="38" height="28" rx="8"/><rect x="188" y="136" width="38" height="28" rx="8"/><rect x="234" y="136" width="38" height="28" rx="8"/><rect x="280" y="136" width="38" height="28" rx="8"/></g>
+<g transform="translate(134 30)"><path d="M10 0 L42 0 L36 34 L16 34Z" fill="#fff"/><path d="M14 0 L18 34 M26 0 L26 34 M38 0 L34 34" stroke="#d64535" stroke-width="4"/><g fill="#fde7a6"><circle cx="12" cy="-2" r="7"/><circle cx="22" cy="-6" r="8"/><circle cx="33" cy="-4" r="8"/><circle cx="41" cy="0" r="6"/></g></g>
+</svg></div><p>Enjoys all kinds of good movies, and nothing beats watching them in a theatre.</p>
           <div class="people"><div class="person"><span class="av" style="background:#c2410c">V</span><div><b>Vijay</b><span>Favourite actor</span></div></div><div class="person"><span class="av" style="background:#7c3aed">R</span><div><b>Rajinikanth</b><span>Favourite actor</span></div></div></div>
-          <div class="note">First movie in a theatre: <b>The Mummy Returns</b></div>
+          <div class="ticket"><div class="tk-main"><small>First movie in a theatre</small><b>The Mummy Returns</b><span>Where the love for the big screen began</span></div><div class="tk-stub">ADMIT<br>ONE</div></div>
         </div>
         <div class="fcard">
           <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span>Favourite songs</h3>
@@ -357,8 +438,21 @@ footer{padding-block:28px 44px;color:var(--muted);font-size:.92rem;display:flex;
         </div>
         <div class="fcard">
           <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h18v2a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7z"/><path d="M8 7c0-1 1-1.5 1-2.5M12 7c0-1 1-1.5 1-2.5M16 7c0-1 1-1.5 1-2.5"/></svg></span>From his kitchen</h3>
-          <p>South Indian vegetarian, the full meal:</p>
-          <div class="dish"><span>Rice</span><span>Sambar</span><span>Rasam</span><span>Poriyal</span><span>Curd</span></div>
+          <div class="meal-banner"><svg class="meal" viewBox="0 0 400 210" role="img" aria-label="Illustration of a South Indian meal on a banana leaf: rice, sambar, rasam, poriyal, curd and appalam">
+<path d="M8 105 C70 18 330 6 394 52 C402 90 402 130 394 158 C330 204 70 192 8 105Z" fill="#2f7d32"/>
+<path d="M8 105 C70 30 330 18 394 60 L394 105 Z" fill="#3b9440"/>
+<path d="M14 105 H394" stroke="#a5d68a" stroke-width="3"/>
+<g stroke="#4fa94f" stroke-width="1.5" opacity=".8"><path d="M60 105 L90 50"/><path d="M120 105 L150 40"/><path d="M180 105 L210 34"/><path d="M240 105 L270 32"/><path d="M300 105 L330 36"/><path d="M60 105 L90 160"/><path d="M120 105 L150 170"/><path d="M180 105 L210 176"/><path d="M240 105 L270 178"/><path d="M300 105 L330 174"/></g>
+<ellipse cx="248" cy="118" rx="72" ry="40" fill="#fbf8ee"/><ellipse cx="240" cy="110" rx="50" ry="24" fill="#ffffff"/>
+<g fill="#ece6d2"><circle cx="220" cy="120" r="2"/><circle cx="262" cy="104" r="2"/><circle cx="280" cy="128" r="2"/><circle cx="236" cy="134" r="2"/><circle cx="296" cy="112" r="2"/><circle cx="205" cy="104" r="2"/></g>
+<circle cx="104" cy="70" r="33" fill="#cfd5dc"/><circle cx="104" cy="70" r="26" fill="#c46f1c"/><circle cx="96" cy="64" r="4" fill="#e9a04a"/><circle cx="112" cy="76" r="3" fill="#7a9a2a"/><circle cx="108" cy="60" r="3" fill="#e9a04a"/>
+<circle cx="104" cy="146" r="29" fill="#cfd5dc"/><circle cx="104" cy="146" r="22" fill="#9c3a17"/><circle cx="98" cy="142" r="2.5" fill="#3c7d2a"/><circle cx="110" cy="150" r="2.5" fill="#3c7d2a"/>
+<path d="M160 58 c10-20 50-22 62-4 c6 12-8 22-30 22 c-22 0-38-6-32-18z" fill="#a6c94a"/><g fill="#f08a24"><circle cx="178" cy="56" r="3"/><circle cx="196" cy="62" r="3"/><circle cx="208" cy="52" r="3"/></g><g fill="#f6efc9"><circle cx="186" cy="66" r="2"/><circle cx="202" cy="70" r="2"/></g>
+<circle cx="350" cy="150" r="25" fill="#cfd5dc"/><circle cx="350" cy="150" r="19" fill="#fffdf4"/>
+<circle cx="352" cy="64" r="28" fill="#f1cf74"/><circle cx="352" cy="64" r="28" fill="none" stroke="#e1b553" stroke-width="2"/><g fill="#d9a441"><circle cx="342" cy="56" r="2"/><circle cx="360" cy="70" r="2"/><circle cx="350" cy="78" r="2"/><circle cx="364" cy="54" r="2"/></g>
+<path d="M150 160 c6-8 22-8 28 0 c-6 8-22 8-28 0z" fill="#c0392b"/>
+</svg></div><p>South Indian vegetarian, the full meal on a banana leaf:</p>
+          <div class="legend"><span><i style="background:#f3efe2;border:1px solid #d8d2bd"></i>Rice</span><span><i style="background:#c46f1c"></i>Sambar</span><span><i style="background:#9c3a17"></i>Rasam</span><span><i style="background:#a6c94a"></i>Poriyal</span><span><i style="background:#fffdf4;border:1px solid #d8d2bd"></i>Curd</span><span><i style="background:#f1cf74"></i>Appalam</span></div>
         </div>
         <div class="fcard">
           <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l9.5-9.5"/><path d="M12 9l3-3 3 3-3 3"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>Cricket favourites</h3>
@@ -400,7 +494,7 @@ footer{padding-block:28px 44px;color:var(--muted);font-size:.92rem;display:flex;
 
   <section id="bike">
     <div class="wrap">
-      <div class="sec-h"><div><p class="eyebrow">Featured album</p><h2>My First Bike</h2></div><p class="bike-note">Highway mornings, roadside breaks and night rides.</p></div>
+      <div class="sec-h"><div><p class="eyebrow">Featured album</p><h2>My First Bike</h2></div><p class="bike-note">An explorer on two wheels: he loves heading out to new places on his bike. Highway mornings, roadside breaks and night rides.</p></div>
       <div class="strip" id="strip"></div>
     </div>
   </section>
@@ -426,6 +520,12 @@ footer{padding-block:28px 44px;color:var(--muted);font-size:.92rem;display:flex;
   <button class="btn next" id="lbNext" type="button" aria-label="Next photo">›</button>
 </div>
 <div class="toast" id="toast" hidden role="status"></div>
+<div class="cm-back" id="cmBack" hidden><div class="cm" role="dialog" aria-modal="true" aria-labelledby="cmName">
+  <button class="cm-x" id="cmX" type="button" aria-label="Close">×</button>
+  <div class="cm-av" id="cmAv"></div><h3 id="cmName"></h3><p class="cm-t" id="cmT"></p><ul id="cmList"></ul>
+  <a class="cm-yt" id="cmYt" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Listen on YouTube</a>
+</div></div>
+
 
 <script>
 const ALBUMS=["All","My First Bike","Beach & Nature","Cricket","Hometown","Moments"];
@@ -501,6 +601,28 @@ const toast=document.getElementById('toast');let tt;
 function say(m){toast.textContent=m;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,2200);}
 document.getElementById('share').onclick=()=>{const url=location.href.split('#')[0];
  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(()=>say('Link copied'),()=>say('Copy this link: '+url));}else say('Copy this link: '+url);};
+
+
+/* composer details */
+const COMPOSERS={
+ rahman:{n:'A. R. Rahman',ini:'AR',c:'#b45309',t:'"Mozart of Madras" · Composer & singer',rows:[['Debut','Roja (1992)'],['Known for','Bombay, Minsaara Kanavu, Alaipayuthey, Kannathil Muthamittal, Udhaya'],['Awards','2 Oscars and 2 Grammys for Slumdog Millionaire'],['Fun fact','Composed both of Ramesh\'s favourite songs here']],q:'A+R+Rahman+Tamil+hits'},
+ raja:{n:'Ilaiyaraaja',ini:'IR',c:'#7c3aed',t:'"Isaignani" · Composer',rows:[['Debut','Annakili (1976)'],['Known for','Mouna Ragam, Nayakan, Thalapathi'],['Body of work','Music for more than 1,000 films'],['Honour','Padma Vibhushan (2018)']],q:'Ilaiyaraaja+hits'},
+ gvp:{n:'G. V. Prakash Kumar',ini:'GV',c:'#0f766e',t:'Composer, singer & actor',rows:[['Debut','Veyil (2006)'],['Known for','Aadukalam, Mayakkam Enna, Asuran, Soorarai Pottru'],['Award','National Film Award for Soorarai Pottru'],['Family','Nephew of A. R. Rahman']],q:'G+V+Prakash+hits'},
+ pradeep:{n:'Pradeep Kumar',ini:'PK',c:'#be123c',t:'Playback singer & composer',rows:[['Roots','Trained Carnatic musician'],['Sang','Aagayam Theepiditha (Madras), Maya Nadhi (Kabali)'],['Composed','Aadai, Andhaghaaram, Kuthiraivaal'],['Style','Soulful, melody-rich songs']],q:'Pradeep+Kumar+songs'},
+ sean:{n:'Sean Roldan',ini:'SR',c:'#1d4ed8',t:'Composer & singer',rows:[['Real name','Raghavendra Raja Rao'],['Debut','Vaayai Moodi Pesavum (2014)'],['Known for','Pa. Pandi, Jai Bhim, Good Night, Lover, Tourist Family'],['Style','Fresh, folk-tinged indie sound']],q:'Sean+Roldan+songs'}
+};
+const cmBack=document.getElementById('cmBack');let cmLast=null;
+function openC(k){const d=COMPOSERS[k];if(!d)return;cmLast=document.activeElement;
+ const av=document.getElementById('cmAv');av.textContent=d.ini;av.style.background=d.c;
+ document.getElementById('cmName').textContent=d.n;document.getElementById('cmT').textContent=d.t;
+ const ul=document.getElementById('cmList');ul.innerHTML='';d.rows.forEach(([a,b])=>{const li=document.createElement('li');li.innerHTML='<b></b><span></span>';li.children[0].textContent=a;li.children[1].textContent=b;ul.appendChild(li);});
+ document.getElementById('cmYt').href='https://www.youtube.com/results?search_query='+d.q;
+ cmBack.hidden=false;document.getElementById('cmX').focus();}
+function closeC(){cmBack.hidden=true;cmLast&&cmLast.focus();}
+document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>openC(b.dataset.c));
+document.getElementById('cmX').onclick=closeC;
+cmBack.addEventListener('click',e=>{if(e.target===cmBack)closeC();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!cmBack.hidden)closeC();});
 
 /* active tab on scroll */
 const links=[...document.querySelectorAll('#tabs a')];
