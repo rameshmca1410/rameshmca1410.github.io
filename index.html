@@ -98,6 +98,7 @@ section{padding-block:44px;border-bottom:1px solid var(--line)}
 h2{font-size:1.65rem;font-weight:800;letter-spacing:-.02em}
 
 .about{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:start}
+.readmore a{font-weight:700;color:var(--accent);text-decoration:none}.readmore a:hover{text-decoration:underline}.readmore .rm-src{color:var(--muted);font-size:.9rem}
 .about-text p{margin:0 0 14px;font-size:1.08rem;max-width:62ch}
 .about-text .quote{margin-top:22px;padding:18px 22px;background:var(--accent-soft);border-radius:16px;font-size:1.15rem;font-weight:600;color:var(--ink)}
 .qf{background:var(--panel);border-radius:var(--r);padding:8px 22px}
@@ -105,6 +106,11 @@ h2{font-size:1.65rem;font-weight:800;letter-spacing:-.02em}
 .qf dl{margin:0}
 .qf .row{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:.98rem}
 .qf .row:first-child{border-top:0}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+.soc{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:#fff;transition:transform .15s,box-shadow .15s}
+.soc:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.soc svg{width:20px;height:20px}
+.soc[data-pending]{opacity:.55;cursor:default}
 .qf dt{font-weight:700}
 .qf dd{margin:0;color:var(--muted)}
 
@@ -497,7 +503,6 @@ svg.leaflet-zoom-animated{will-change:transform}
 .jd .jc .logo{width:28px;height:28px;border-radius:7px;font-size:.6rem}
 .jd .jt b{font-size:.8rem}.jd .jt span{font-size:.72rem}.jd .jt em{font-size:.68rem}
 .jd .jc .ext{width:12px;height:12px}
-#journey .sec-h{margin-bottom:12px}
 .role{font-size:.84rem!important;gap:8px}
 .bike-line{margin:0 0 14px;font-size:1.02rem;font-weight:600;color:var(--ink);max-width:60ch}
 .pgroup ul{display:grid!important;grid-template-columns:1fr 1fr;gap:10px!important}
@@ -598,6 +603,7 @@ svg.leaflet-zoom-animated{will-change:transform}
 .vcard figcaption{display:flex;flex-direction:column;padding:8px 2px 0}
 .vcard figcaption b{font-size:.95rem}.vcard figcaption span{font-size:.8rem;color:var(--muted)}
 @media (max-width:760px){.vcard,.vcard.tall{flex:1 1 100%;max-width:100%}.watch .vcard.tall video{max-height:80vh;width:auto;margin:0 auto}}
+
 </style>
 </head>
 <body>
@@ -622,7 +628,7 @@ svg.leaflet-zoom-animated{will-change:transform}
     <a href="#favourites">Favourites</a>
     <a href="#places">Places</a>
     <a href="#hometown">Hometown</a>
-    <a href="#history">History</a>
+    <a href="wiki.html" target="_blank" rel="noopener">History ↗</a>
   </div>
 </nav>
 
@@ -648,6 +654,7 @@ svg.leaflet-zoom-animated{will-change:transform}
         <p>Ramesh G's native place is Perumanallur, near Ayyampalayam, in Tiruppur district, where he spent his childhood. In 2025, his family moved to a new home in Perumanallur.</p>
         <p>He is a cheerful, jolly person who loves calm surroundings and nature. He currently works in Chennai and speaks Tamil and English.</p>
         <p>He loves cooking South Indian food, from sambar and rasam to poriyal and curd rice, and enjoys cooking a good meal, eating together and sharing it with friends.</p>
+        <p class="readmore"><a href="wiki.html" target="_blank" rel="noopener">Read more <span aria-hidden="true">↗</span></a> <span class="rm-src">· Wiki page</span></p>
         
         <div class="favbox" id="favourites">
           <div class="fb-h"><h2>Favourites</h2><span>Hover for a photo · tap for details</span></div>
@@ -677,6 +684,12 @@ svg.leaflet-zoom-animated{will-change:transform}
           <div class="row"><dt>Hobbies</dt><dd>Listening to music, watching movies, watching sports, and playing cricket when everyone gets together</dd></div>
           <div class="row"><dt>Nature</dt><dd>Jolly and cheerful; loves calm and nature</dd></div>
           <div class="row"><dt>Loves cooking</dt><dd>South Indian food</dd></div>
+          <div class="row"><dt>Profiles</dt><dd><div class="socials">
+            <a class="soc" href="#" data-pending title="LinkedIn (link coming soon)" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+            <a class="soc" href="#" data-pending title="Instagram (link coming soon)" aria-label="Instagram"><svg viewBox="0 0 24 24"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".35" stop-color="#FA7E1E"/><stop offset=".6" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><path fill="url(#igg)" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+            <a class="soc" href="https://github.com/rameshmca1410" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="#181717"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg></a>
+            <a class="soc" href="mailto:rameshmca1410@gmail.com" title="Email" aria-label="Email"><svg viewBox="0 0 24 24"><path fill="#EA4335" d="M2 6.5 12 13l10-6.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path fill="#4285F4" d="M2 6.5V18a2 2 0 0 0 2 2h2V9.9z"/><path fill="#34A853" d="M22 6.5V18a2 2 0 0 1-2 2h-2V9.9z"/><path fill="#FBBC04" d="M6 9.9V20h12V9.9L12 13.8z" opacity=".25"/></svg></a>
+          </div></dd></div>
         </dl>
       </aside>
 </div>
@@ -736,62 +749,6 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
   </section>
 
-  <section id="history">
-    <div class="wrap">
-      <h2 class="wk-h">Ramesh G</h2>
-      <div class="wiki">
-        <nav class="wk-toc" aria-label="Contents">
-          <details open><summary>Contents</summary>
-          <ol>
-            <li><a href="#h-early">Early life</a></li>
-            <li><a href="#h-edu">Education</a>
-              <ol><li><a href="#h-school">Schooling</a></li><li><a href="#h-hss">Higher secondary</a></li><li><a href="#h-college">College</a></li></ol></li>
-            <li><a href="#h-career">Career</a>
-              <ol><li><a href="#h-chennai">First job in Chennai</a></li><li><a href="#h-hyd">Course in Hyderabad</a></li><li><a href="#h-sthira">Sthira IT Solutions</a></li><li><a href="#h-ps">Purpleslate</a></li></ol></li>
-            <li><a href="#h-personal">Personal life</a></li>
-          </ol>
-          </details>
-        </nav>
-
-        <article class="wk-body">
-
-          <h3 id="h-early">Early life</h3>
-          <figure class="wk-fig"><a class="imgbtn" href="images/garden-flowers.jpg" target="_blank" rel="noopener" aria-label="Open photo: Ramesh G"><img loading="lazy" src="images/garden-flowers-thumb.jpg" alt="Ramesh G among bougainvillea flowers" style="object-position:50% 35%"></a><figcaption>Ramesh G</figcaption></figure>
-          <p>Ramesh spent his childhood in Perumanallur, a pleasant village near Ayyampalayam. He grew up there playing with his friends and enjoying village life.</p>
-
-          <h3 id="h-edu">Education</h3>
-          <h4 id="h-school">Schooling</h4>
-          <p>He began his schooling at the Government School in Perumanallur. When he was in 4th standard, he watched his first movie in a theatre, <i>The Mummy Returns</i>. From 6th to 10th standard (2003&ndash;2007), he studied at Sakthi Vigneswara Kalvi Nilayam, which was then located at Kanakkampalayam Pirivu; the school has since moved to a new campus.</p>
-          <p>In 6th and 7th standard, he travelled to school by school van and bus. From 8th standard onwards, his family allowed him to cycle to school. At school he took part in running and volleyball, but cricket was the game he played the most.</p>
-
-          <h4 id="h-hss">Higher secondary</h4>
-          <p>After completing 10th standard, he joined Shree Gurukulam Higher Secondary School in Gobichettipalayam for 11th and 12th standard (2007&ndash;2009). He stayed in the school hostel, which was his first time living away from his family.</p>
-          <p>Apart from his studies, he played throwball in open state-level and divisional matches, which he remembers as a very special moment. He also played cricket once a week and enjoyed the hostel food.</p>
-
-          <h4 id="h-college">College</h4>
-          <p>From 2009 to 2012, he studied B.Sc. Mathematics with Computer Applications at Nandha Arts and Science College, Erode. He travelled about 40 minutes by bus from his hometown each day, and those bus journeys, full of fun and chats with friends, are among his best memories.</p>
-          <p>From 2012 to 2015, he completed his MCA at Kalaignar Karunanidhi Institute of Technology, Coimbatore. Living away from his family once again, he shared a rented room with his friends, and he remembers those three years as the most enjoyable of his student life.</p>
-
-          <h3 id="h-career">Career</h3>
-          <h4 id="h-chennai">First job in Chennai</h4>
-          <p>In 2015, he moved to Chennai to look for a job. His first job was a temporary role at Tech Mahindra in Ambattur, Chennai, in a BPO voice process for Vodafone. He left the job after the Chennai floods of 2015 and attended many interviews while searching for a new role, but was not selected.</p>
-
-          <h4 id="h-hyd">Course in Hyderabad</h4>
-          <p>He then decided to take a course in Hyderabad, where courses cost much less than in Chennai, and joined one in Secunderabad in April 2017. Before the course was over, he travelled to Bangalore to attend a job interview through a friend&rsquo;s reference.</p>
-
-          <h4 id="h-sthira">Sthira IT Solutions, Bangalore</h4>
-          <p>He was selected and joined Sthira IT Solutions in Bangalore in 2017, where he worked for four years. For nine months of his first year, he worked at a client site in Puducherry. He then worked from the office, and during the COVID-19 pandemic he worked from home for about a year.</p>
-
-          <h4 id="h-ps">Purpleslate, Chennai</h4>
-          <p>In 2021, he returned to Chennai and joined Purpleslate as a Technology Engineer. He works at its office in Thiruvanmiyur.</p>
-          <p>Apart from work, he has recently taken up table tennis and enjoys playing it. He sometimes plays badminton with his friends at weekends, and plays turf cricket on weekends or weekdays whenever he can.</p>
-
-          <h3 id="h-personal">Personal life</h3>
-          <p>Ramesh married Selvanayagam on 18 May 2026. She is from Thiruvadanai, near Sivaganga, and works as a college professor.</p>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <section id="bike">
     <div class="wrap">
@@ -1064,6 +1021,7 @@ function setMode(m,scroll){
   onScroll();
 }
 links.forEach(a=>a.addEventListener('click',e=>{
+  if(!(a.getAttribute('href')||'').startsWith('#'))return;
   const m=a.dataset.mode;
   if(m){e.preventDefault();setMode(m);try{history.replaceState(null,'','#'+m);}catch(_){}}
   else if(mode!=='all'){e.preventDefault();setMode('all',false);const t=document.querySelector(a.getAttribute('href'));
@@ -1071,12 +1029,13 @@ links.forEach(a=>a.addEventListener('click',e=>{
 }));
 function onScroll(){
   if(mode!=='all'){links.forEach(a=>a.setAttribute('aria-current',a.dataset.mode===mode));return;}
-  const secLinks=links.filter(a=>!a.dataset.mode);let cur=secLinks[0];
+  const secLinks=links.filter(a=>!a.dataset.mode&&(a.getAttribute('href')||'').startsWith('#'));let cur=secLinks[0];
   secLinks.forEach(a=>{const t=document.querySelector(a.getAttribute('href'));if(t&&t.offsetParent!==null&&t.getBoundingClientRect().top<140)cur=a;});
   links.forEach(a=>a.setAttribute('aria-current',a===cur));
 }
 addEventListener('scroll',onScroll,{passive:true});
 const h=(location.hash||'').slice(1);setMode(h==='images'||h==='videos'?h:'all',false);
 </script>
+<script>document.querySelectorAll('.soc[data-pending]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));</script>
 </body>
 </html>
