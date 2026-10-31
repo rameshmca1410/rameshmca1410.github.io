@@ -30,7 +30,7 @@ p{margin:0 0 14px}
 .foot{clear:both;border-top:1px solid var(--soft);margin-top:40px;padding-top:12px;color:var(--muted);font-size:.85rem}
 @media (max-width:860px){.page{grid-template-columns:1fr}.toc{position:static;border:1px solid var(--soft);padding:10px 14px;background:var(--box)}.infobox{float:none;width:100%;margin:0 0 18px}}
 </style></head><body>
-<header class="top"><a class="logo" href="index.html">RAMESH&nbsp;G<small>Personal wiki</small></a><a class="back" href="index.html">← Back to main page</a></header>
+<header class="top"><a class="logo" href="index.html">RAMESH&nbsp;G<small>Personal wiki</small></a><a class="back" id="backMain" href="index.html">← Back to main page</a></header>
 <div class="page">
 <nav class="toc" aria-label="Contents"><b>Contents</b><ol>
 <li><a href="#top">(Top)</a></li>
@@ -90,4 +90,8 @@ p{margin:0 0 14px}
           <p>Ramesh married Selvanayagam on 18 May 2026. She is from Thiruvadanai, near Sivaganga, and works as a college professor.</p>
         
 <div class="foot">© Ramesh G · <a href="index.html">Main page</a></div>
-</main></div></body></html>
+</main></div><script>
+(function(){var b=document.getElementById('backMain');if(!b)return;
+b.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&history.length>1){e.preventDefault();history.back();}}catch(_){}});})();
+</script>
+</body></html>
