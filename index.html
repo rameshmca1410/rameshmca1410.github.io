@@ -588,6 +588,7 @@ svg.leaflet-zoom-animated{will-change:transform}
 .wk-body::after{content:"";display:block;clear:both}
 @media (max-width:1000px){.wiki{grid-template-columns:1fr}.wk-toc{position:static}}
 @media (max-width:700px){.wk-fig{width:130px;margin:2px 0 8px 12px}.wk-fig .imgbtn{height:90px}}
+.vid-alt{margin:8px 0 0;font-size:.82rem;color:var(--muted);text-align:center}.vid-alt a{color:var(--accent);font-weight:600}
 </style>
 </head>
 <body>
@@ -676,9 +677,11 @@ svg.leaflet-zoom-animated{will-change:transform}
 
   <section id="watch">
     <div class="wrap watch">
-      <video controls playsinline preload="metadata" poster="images/ramesh-story-poster.jpg" aria-label="Ramesh G photo story video">
+      <video controls playsinline webkit-playsinline preload="metadata" poster="images/ramesh-story-poster.jpg" aria-label="Ramesh G photo story video">
         <source src="videos/ramesh-story.mp4" type="video/mp4">
+        <a href="videos/ramesh-story.mp4">Watch the video</a>
       </video>
+      <p class="vid-alt">Video not playing? <a href="videos/ramesh-story.mp4" target="_blank" rel="noopener">Open it directly</a></p>
     </div>
   </section>
 
