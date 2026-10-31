@@ -29,10 +29,37 @@ p{margin:0 0 14px}
 .infobox table{width:100%;border-collapse:collapse}.infobox th{text-align:left;vertical-align:top;padding:5px 6px 5px 0;width:38%}.infobox td{padding:5px 0;vertical-align:top}
 .foot{clear:both;border-top:1px solid var(--soft);margin-top:40px;padding-top:12px;color:var(--muted);font-size:.85rem}
 @media (max-width:860px){.page{grid-template-columns:1fr}.toc{position:static;border:1px solid var(--soft);padding:10px 14px;background:var(--box)}.infobox{float:none;width:100%;margin:0 0 18px}}
+.menu,.bk-short,.mtabs,.scrim{display:none}
+.menu{background:none;border:0;color:var(--ink);padding:6px;margin:-6px 0 -6px -6px;cursor:pointer;border-radius:6px}
+@media (max-width:860px){
+  .top{padding:10px 14px;gap:10px;position:sticky;top:0;background:var(--bg);z-index:20}
+  .menu{display:inline-flex}
+  .logo{font-size:1.15rem}.logo small{display:none}
+  .bk-full{display:none}.bk-short{display:inline;font-size:.9rem}
+  .page{display:block;padding:12px 14px 40px}
+  .toc{position:fixed;top:0;left:0;bottom:0;width:78%;max-width:300px;z-index:40;background:var(--bg);border:0;border-right:1px solid var(--soft);padding:18px 18px;overflow-y:auto;transform:translateX(-102%);transition:transform .25s ease;box-shadow:2px 0 16px rgba(0,0,0,.15)}
+  .toc.open{transform:none}
+  .toc li{margin:10px 0}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:30}
+  .scrim.open{display:block}
+  h1{font-size:1.75rem;border-bottom:0;padding-bottom:4px}
+  .mtabs{display:flex;border-bottom:1px solid var(--soft);margin-bottom:10px}
+  .mtabs span{font-size:.9rem;font-weight:700;padding:6px 2px;border-bottom:2px solid var(--ink)}
+  .from{display:none}
+  .infobox{float:none;width:100%;margin:6px 0 18px;padding:10px;font-size:.92rem}
+  .infobox img{max-width:260px;margin:0 auto;aspect-ratio:4/5}
+  .infobox th{width:40%}
+  h2.col{cursor:pointer;display:flex;align-items:center;gap:8px;font-size:1.4rem;margin:0;padding:12px 0;border-bottom:1px solid var(--soft);user-select:none;-webkit-tap-highlight-color:transparent}
+  h2.col::before{content:"";width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(-45deg);transition:transform .2s;flex:none;margin:0 4px 0 2px}
+  h2.col.open::before{transform:rotate(45deg)}
+  .sec{display:none;padding-top:10px}
+  .sec.open{display:block}
+}
 </style></head><body>
-<header class="top"><a class="logo" href="index.html">RAMESH&nbsp;G<small>Personal wiki</small></a><a class="back" id="backMain" href="index.html">← Back to main page</a></header>
+<header class="top"><button class="menu" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><a class="logo" href="index.html">RAMESH&nbsp;G<small>Personal wiki</small></a><a class="back" id="backMain" href="index.html"><span class="bk-full">← Back to main page</span><span class="bk-short" aria-label="Back to main page">← Main page</span></a></header>
 <div class="page">
-<nav class="toc" aria-label="Contents"><b>Contents</b><ol>
+<div class="scrim" id="scrim"></div>
+<nav class="toc" id="toc" aria-label="Contents"><b>Contents</b><ol>
 <li><a href="#top">(Top)</a></li>
 <li><a href="#h-early">Early life</a></li>
 <li><a href="#h-edu">Education</a><ol><li><a href="#h-school">Schooling</a></li><li><a href="#h-hss">Higher secondary</a></li><li><a href="#h-college">College</a></li></ol></li>
@@ -40,6 +67,7 @@ p{margin:0 0 14px}
 <li><a href="#h-personal">Personal life</a></li></ol></nav>
 <main id="top">
 <h1>Ramesh G</h1>
+<div class="mtabs"><span>Article</span></div>
 <p class="from">From Ramesh G's personal page</p>
 <aside class="infobox"><div class="ib-t">Ramesh G</div><img src="images/profile.jpg" alt="Ramesh G">
 <table>
@@ -93,5 +121,34 @@ p{margin:0 0 14px}
 </main></div><script>
 (function(){var b=document.getElementById('backMain');if(!b)return;
 b.addEventListener('click',function(e){try{var r=document.referrer;if(r&&new URL(r).origin===location.origin&&history.length>1){e.preventDefault();history.back();}}catch(_){}});})();
+</script>
+<script>
+(function(){
+var mq=window.matchMedia('(max-width:860px)');
+var main=document.getElementById('top'),ib=main.querySelector('.infobox');
+var lead=ib.nextElementSibling; /* first lead paragraph */
+var home=document.createComment('ib');ib.parentNode.insertBefore(home,ib);
+/* wrap each section after an h2 */
+var hs=[].slice.call(main.querySelectorAll('h2'));
+hs.forEach(function(h){var box=document.createElement('div');box.className='sec';var n=h.nextSibling;
+  while(n&&!(n.nodeType===1&&(n.tagName==='H2'||n.classList.contains('foot')))){var nx=n.nextSibling;box.appendChild(n);n=nx;}
+  h.parentNode.insertBefore(box,h.nextSibling);
+  h.addEventListener('click',function(){if(!mq.matches)return;h.classList.toggle('open');box.classList.toggle('open');});});
+function layout(){
+  if(mq.matches){ if(lead&&lead.parentNode)lead.parentNode.insertBefore(ib,lead.nextSibling); hs.forEach(function(h){h.classList.add('col');}); }
+  else { home.parentNode.insertBefore(ib,home.nextSibling); hs.forEach(function(h){h.classList.remove('col');}); }
+}
+layout(); mq.addEventListener?mq.addEventListener('change',layout):mq.addListener(layout);
+/* open section containing a target */
+function openFor(id){var t=id&&document.getElementById(id);if(!t)return;var s=t.tagName==='H2'?t.nextElementSibling:t.closest('.sec');
+  if(s&&s.classList.contains('sec')){s.classList.add('open');s.previousElementSibling.classList.add('open');}}
+/* contents drawer */
+var toc=document.getElementById('toc'),scrim=document.getElementById('scrim'),btn=document.getElementById('menuBtn');
+function drawer(o){toc.classList.toggle('open',o);scrim.classList.toggle('open',o);btn.setAttribute('aria-expanded',o);}
+btn.addEventListener('click',function(){drawer(!toc.classList.contains('open'));});
+scrim.addEventListener('click',function(){drawer(false);});
+toc.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){openFor(a.getAttribute('href').slice(1));drawer(false);});});
+if(location.hash)openFor(location.hash.slice(1));
+})();
 </script>
 </body></html>
