@@ -513,52 +513,57 @@ svg.leaflet-zoom-animated{will-change:transform}
 .cpics{max-width:520px}
 .cpics .imgbtn{height:150px}
 
-/* mini maps inside fact boxes */
-.fact.fmap{padding:10px 12px 10px;gap:6px;overflow:hidden}
-.fact .mini{flex:1;min-height:60px;border-radius:10px;overflow:hidden;border:1px solid var(--line);position:relative;z-index:0;background:var(--panel)}
-.fact .mini.none{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem}
-.fact .fbot{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+/* location boxes: compact, map shows on hover / tap */
+.fact.fmap{position:relative;overflow:visible}
+.fact .fbot{margin-top:auto}
 .fact .fbot .v{margin-top:0}
-.maplink{flex:none;font-size:.78rem;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.maplink{flex:none;font:inherit;font-size:.74rem;line-height:1.2;font-weight:600;color:var(--accent);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer}
 .maplink:hover{background:var(--panel)}
+.mpop{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px -10px rgba(0,0,0,.35);padding:6px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s,visibility .15s}
+.fact.fmap:last-child .mpop{top:auto;bottom:calc(100% + 6px)}
+@media (hover:hover){.fact.fmap:hover .mpop{opacity:1;visibility:visible;transform:none}}
+.fact.fmap.open .mpop{opacity:1;visibility:visible;transform:none}
+.mpop .mini{height:170px;border-radius:8px;overflow:hidden;position:relative;z-index:0;background:var(--panel)}
+.mpop .mini.none{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem}
+.gml{display:block;text-align:center;font-size:.78rem;font-weight:600;color:var(--accent);text-decoration:none;padding:6px 0 2px}
 .mtip-s{font-size:.75rem;font-weight:600;padding:1px 2px}
-@media (max-width:1100px){.facts{height:auto!important}.fact.fmap{min-height:0}.fact .mini{flex:none;height:110px;min-height:0}}
-@media (max-width:760px){.facts{grid-template-columns:1fr!important}.fact .mini{height:120px}}
+@media (max-width:1100px){.facts{height:auto!important}.fact.fmap{min-height:104px}}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr!important}.fact.fmap:last-child .mpop{top:calc(100% + 6px);bottom:auto}.mpop{left:auto;right:0;width:min(86vw,320px)}.fact.fmap:first-child .mpop{left:0;right:auto}}
 
-/* Wikipedia-style life story */
-.wiki{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;align-items:start}
-.wk-toc{position:sticky;top:76px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.88rem}
-.wk-toc summary{font-weight:700;cursor:pointer;list-style:none}
-.wk-toc summary::-webkit-details-marker{display:none}
-.wk-toc ol{margin:8px 0 0;padding-left:18px;counter-reset:none}
-.wk-toc ol ol{margin:2px 0 4px;padding-left:16px;font-size:.84rem}
-.wk-toc li{margin:3px 0}
-.wk-toc a{color:var(--accent);text-decoration:none}
-.wk-toc a:hover{text-decoration:underline}
-.wk-body{font-size:1rem;line-height:1.7;min-width:0}
-.wk-body h3{font-family:Georgia,'Linux Libertine','Times New Roman',serif;font-weight:400;font-size:1.55rem;margin:26px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line);scroll-margin-top:80px}
-.wk-body h4{font-size:1.02rem;font-weight:700;margin:18px 0 6px;scroll-margin-top:80px}
-.wk-body p{margin:0 0 12px}
-.wk-lead{font-size:1.04rem}
-.wk-box{float:right;width:300px;margin:0 0 16px 22px;border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:10px;font-size:.86rem;line-height:1.45}
-.wk-title{text-align:center;font-weight:700;font-size:1.15rem;margin-bottom:8px}
-.wk-img{display:block;width:100%;height:300px;border-radius:2px;overflow:hidden}
-.wk-img img{width:100%;height:100%;object-fit:cover}
-.wk-cap{text-align:center;font-size:.8rem;color:var(--muted);margin:6px 0 8px}
-.wk-band{background:var(--accent-soft);color:var(--ink);text-align:center;font-weight:700;padding:4px 6px;margin:8px 0 4px}
-.wk-box dl{margin:0}
-.wk-box dl>div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;padding:5px 2px;border-top:1px solid var(--line)}
-.wk-box dl>div:first-child{border-top:0}
-.wk-box dt{font-weight:700}
-.wk-box dd{margin:0}
-.wk-fig{float:right;clear:right;width:220px;margin:4px 0 12px 18px;border:1px solid var(--line);background:var(--panel);padding:6px;border-radius:4px}
-.wk-fig .imgbtn{display:block;width:100%;height:150px;border-radius:2px;overflow:hidden}
-.wk-fig img{width:100%;height:100%;object-fit:cover}
-.wk-fig figcaption{font-size:.78rem;color:var(--muted);padding-top:5px}
-.wk-body::after{content:"";display:block;clear:both}
-@media (max-width:1000px){.wiki{grid-template-columns:1fr}.wk-toc{position:static}}
-@media (max-width:700px){.wk-box{float:none;width:auto;margin:0 0 16px}.wk-fig{float:none;width:auto;margin:0 0 12px}.wk-fig .imgbtn{height:200px}.wk-img{height:320px}}
-.wk-h{font-family:Georgia,'Linux Libertine','Times New Roman',serif;font-weight:400;font-size:2rem;margin:0 0 18px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+/* one combined Favourites card under About */
+.favbox{margin-top:22px;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.fb-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.fb-h h2{font-size:1.25rem;margin:0}
+.fb-h span{font-size:.76rem;color:var(--muted)}
+.fb-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}
+.fb-sec{display:flex;flex-direction:column;gap:8px;min-width:0}
+.fb-wide{grid-column:1/-1;padding-top:10px;border-top:1px solid var(--line)}
+.fb-sec h3{font-size:.86rem;font-weight:700;margin:0;color:var(--accent);text-transform:none}
+.fb-sec p{margin:0;font-size:.86rem;color:var(--muted);max-width:none}
+.about-text .fb-sec p{font-size:.86rem;margin:0}
+@media (max-width:700px){.fb-grid{grid-template-columns:1fr}.fb-sec .people{display:grid;grid-template-columns:1fr 1fr;gap:6px}.fb-sec .person{padding:6px 8px 6px 6px}.fb-sec .person .ext{display:none}}
+/* Wikipedia-style person panel */
+.pm-back{position:fixed;inset:0;z-index:70;background:rgba(10,14,12,.55);display:grid;place-items:center;padding:20px 14px}
+.pm-back[hidden]{display:none}
+.pm{background:var(--bg);color:var(--ink);border-radius:16px;width:100%;max-width:480px;max-height:calc(100vh - 40px);overflow:auto;padding:20px;position:relative;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.pm-x{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:var(--panel);font-size:1.3rem;cursor:pointer;color:var(--ink)}
+.pm-top{display:flex;gap:14px;align-items:center;padding-right:40px}
+.pm-top img{width:92px;height:112px;object-fit:cover;object-position:50% 20%;border-radius:8px;background:var(--panel);flex:none}
+.pm-top img[src=""]{visibility:hidden}
+.pm h3{font-family:Georgia,'Linux Libertine','Times New Roman',serif;font-weight:400;font-size:1.5rem;margin:0;line-height:1.2}
+.pm-d{color:var(--muted);font-size:.86rem;margin:4px 0 0}
+.pm-t{font-size:.9rem;line-height:1.6;margin:14px 0 10px}
+.pm-band{background:var(--accent-soft);text-align:center;font-weight:700;font-size:.85rem;padding:4px 6px;margin:6px 0 2px}
+.pm dl{margin:0;font-size:.86rem}
+.pm dl>div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px;padding:6px 2px;border-top:1px solid var(--line)}
+.pm dl>div:first-child{border-top:0}
+.pm dt{font-weight:700}.pm dd{margin:0}
+.pm-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pm-btns a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:700;font-size:.86rem;padding:8px 14px;border-radius:999px}
+.pm-wk{background:var(--accent);color:var(--bg)}
+.pm-yt{background:#e62117;color:#fff}
+.pm-yt[hidden]{display:none}
+.pm-note{color:var(--muted);font-size:.82rem;padding:6px 2px}
 </style>
 </head>
 <body>
@@ -584,7 +589,6 @@ svg.leaflet-zoom-animated{will-change:transform}
     <a href="#places">Places</a>
     <a href="#hometown">Hometown</a>
     <a href="#history">History</a>
-    <a href="#journey">Journey</a>
   </div>
 </nav>
 
@@ -597,8 +601,8 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
 
     <div class="facts">
-      <div class="fact fmap"><div class="k">Native place</div><div class="mini" id="map-native" role="region" aria-label="Map showing Perumanallur, Tiruppur district"></div><div class="fbot"><div><div class="v">Perumanallur</div><div class="s">Tiruppur district</div></div><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=11.20458%2C77.36031" target="_blank" rel="noopener">Open map</a></div></div>
-      <div class="fact fmap"><div class="k">Works in</div><div class="mini" id="map-work" role="region" aria-label="Map showing Thiruvanmiyur, Chennai"></div><div class="fbot"><div><div class="v">Thiruvanmiyur</div><div class="s">Chennai, Tamil Nadu</div></div><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Thiruvanmiyur%2C+Chennai" target="_blank" rel="noopener">Open map</a></div></div>
+      <div class="fact fmap"><div class="k">Native place<button class="maplink" type="button" aria-expanded="false" aria-controls="pop-map-native">Map</button></div><div class="fbot"><div><div class="v">Perumanallur</div><div class="s">Tiruppur district</div></div></div><div class="mpop" id="pop-map-native"><div class="mini" id="map-native" role="region" aria-label="Map showing Perumanallur"></div><a class="gml" href="https://www.google.com/maps/search/?api=1&amp;query=11.20458%2C77.36031" target="_blank" rel="noopener">Open in Google Maps</a></div></div>
+      <div class="fact fmap"><div class="k">Works in<button class="maplink" type="button" aria-expanded="false" aria-controls="pop-map-work">Map</button></div><div class="fbot"><div><div class="v">Thiruvanmiyur</div><div class="s">Chennai, Tamil Nadu</div></div></div><div class="mpop" id="pop-map-work"><div class="mini" id="map-work" role="region" aria-label="Map showing Thiruvanmiyur"></div><a class="gml" href="https://www.google.com/maps/search/?api=1&amp;query=Thiruvanmiyur%2C+Chennai" target="_blank" rel="noopener">Open in Google Maps</a></div></div>
     </div>
   </div>
 
@@ -606,11 +610,22 @@ svg.leaflet-zoom-animated{will-change:transform}
     <div class="wrap about">
       <div class="about-text">
         <p class="eyebrow">About</p>
-        <h2 style="margin-bottom:16px">From Perumanallur, with a smile</h2>
+        <h2 style="margin-bottom:16px">From Perumanallur</h2>
         <p>Ramesh G's native place is Perumanallur, near Ayyampalayam, in Tiruppur district, where he spent his childhood. In 2025, his family moved to a new home in Perumanallur.</p>
         <p>He is a cheerful, jolly person who loves calm surroundings and nature. He currently works in Chennai and speaks Tamil and English.</p>
         <p>He loves cooking South Indian vegetarian food, from sambar and rasam to poriyal and curd rice, and enjoys cooking a good meal, eating together and sharing it with friends.</p>
         
+        <div class="favbox" id="favourites">
+          <div class="fb-h"><h2>Favourites</h2><span>Hover for a photo · tap for details</span></div>
+          <div class="fb-grid">
+            <div class="fb-sec"><h3>Movies &amp; stars</h3><p>Enjoys all kinds of good movies, and nothing beats watching them in a theatre.</p><div class="people"><a class="person plink" data-wiki="Vijay_(actor)" href="https://en.wikipedia.org/wiki/Vijay_(actor)" target="_blank" rel="noopener"><span class="av" style="background:#c2410c">V</span><div><b>Vijay</b><span>Favourite actor</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Rajinikanth" href="https://en.wikipedia.org/wiki/Rajinikanth" target="_blank" rel="noopener"><span class="av" style="background:#7c3aed">R</span><div><b>Rajinikanth</b><span>Favourite actor</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div><div class="firstm" data-wiki="Movie_theater" data-fill="1"><span class="fimg"></span><div><small>First movie in a theatre</small><b>The Mummy Returns</b></div></div></div>
+            <div class="fb-sec"><h3>Favourite songs</h3><a class="song" href="https://www.youtube.com/results?search_query=Udhaya+Udhaya+song+Vijay+Simran" target="_blank" rel="noopener"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span><b>Udhaya Udhaya</b><span>Udhaya · Vijay &amp; Simran</span></span><em>Watch on YouTube</em></a>
+          <a class="song" href="https://www.youtube.com/results?search_query=Oru+Dheivam+Thandha+Poove+song" target="_blank" rel="noopener"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span><b>Oru Dheivam Thandha Poove</b><span>Kannathil Muthamittal · Madhavan &amp; Simran</span></span><em>Watch on YouTube</em></a></div>
+            <div class="fb-sec fb-wide"><h3>Music directors</h3><div class="people"><button type="button" class="person plink pbtn" data-c="rahman" data-wiki="A._R._Rahman"><span class="av" style="background:#b45309">AR</span><div><b>A. R. Rahman</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="raja" data-wiki="Ilaiyaraaja"><span class="av" style="background:#6d28d9">IR</span><div><b>Ilaiyaraaja</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="gvp" data-wiki="G._V._Prakash_Kumar"><span class="av" style="background:#0f766e">GV</span><div><b>G. V. Prakash</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="pradeep" data-wiki="Pradeep_Kumar_(musician)"><span class="av" style="background:#be123c">PK</span><div><b>Pradeep Kumar</b><span>Singer &amp; composer</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="sean" data-wiki="Sean_Roldan"><span class="av" style="background:#1d4ed8">SR</span><div><b>Sean Roldan</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div></div>
+            <div class="fb-sec fb-wide"><h3>Cricket</h3><p>He loves playing cricket, from local grounds to corporate tournaments.</p>
+          <div class="people"><a class="person plink" data-wiki="AB_de_Villiers" href="https://en.wikipedia.org/wiki/AB_de_Villiers" target="_blank" rel="noopener"><span class="av" style="background:#111827">AB</span><div><b>AB de Villiers</b><span>Batsman</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Matthew_Hayden" href="https://en.wikipedia.org/wiki/Matthew_Hayden" target="_blank" rel="noopener"><span class="av" style="background:#b45309">MH</span><div><b>Matthew Hayden</b><span>Batsman</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Glenn_McGrath" href="https://en.wikipedia.org/wiki/Glenn_McGrath" target="_blank" rel="noopener"><span class="av" style="background:#15803d">GM</span><div><b>Glenn McGrath</b><span>Bowler</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Andrew_Flintoff" href="https://en.wikipedia.org/wiki/Andrew_Flintoff" target="_blank" rel="noopener"><span class="av" style="background:#1e3a8a">AF</span><div><b>Andrew Flintoff</b><span>All-rounder</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Royal_Challengers_Bengaluru" href="https://en.wikipedia.org/wiki/Royal_Challengers_Bengaluru" target="_blank" rel="noopener"><span class="av" style="background:#c8102e;box-shadow:inset 0 0 0 2px #c9a227;font-size:.6rem">RCB</span><div><b>RCB</b><span>Favourite IPL team</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div></div>
+          </div>
+        </div>
       </div>
       <div class="about-side">
       <aside class="qf" aria-label="Quick facts">
@@ -642,31 +657,6 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
   </section>
 
-  <section id="favourites">
-    <div class="wrap">
-      <div class="sec-h"><div><p class="eyebrow">Favourites</p><h2>Movies, music &amp; cricket</h2></div></div>
-      <div class="fav">
-        <div class="fcard">
-          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 9h18M7 5l2 4M12 5l2 4M17 5l2 4"/></svg></span>Movies &amp; stars</h3>
-          <p>Enjoys all kinds of good movies, and nothing beats watching them in a theatre.</p>
-          <div class="people"><a class="person plink" data-wiki="Vijay_(actor)" href="https://en.wikipedia.org/wiki/Vijay_(actor)" target="_blank" rel="noopener"><span class="av" style="background:#c2410c">V</span><div><b>Vijay</b><span>Favourite actor</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Rajinikanth" href="https://en.wikipedia.org/wiki/Rajinikanth" target="_blank" rel="noopener"><span class="av" style="background:#7c3aed">R</span><div><b>Rajinikanth</b><span>Favourite actor</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
-          <div class="firstm" data-wiki="Movie_theater" data-fill="1"><span class="fimg"></span><div><small>First movie in a theatre</small><b>The Mummy Returns</b></div></div>
-        </div>
-        <div class="fcard">
-          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></span>Favourite songs</h3>
-          <a class="song" href="https://www.youtube.com/results?search_query=Udhaya+Udhaya+song+Vijay+Simran" target="_blank" rel="noopener"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span><b>Udhaya Udhaya</b><span>Udhaya · Vijay &amp; Simran</span></span><em>Watch on YouTube</em></a>
-          <a class="song" href="https://www.youtube.com/results?search_query=Oru+Dheivam+Thandha+Poove+song" target="_blank" rel="noopener"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span><b>Oru Dheivam Thandha Poove</b><span>Kannathil Muthamittal · Madhavan &amp; Simran</span></span><em>Watch on YouTube</em></a>
-          <p class="sub-h">Favourite music directors <span>· tap for details</span></p><div class="people"><button type="button" class="person plink pbtn" data-c="rahman" data-wiki="A._R._Rahman"><span class="av" style="background:#b45309">AR</span><div><b>A. R. Rahman</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="raja" data-wiki="Ilaiyaraaja"><span class="av" style="background:#6d28d9">IR</span><div><b>Ilaiyaraaja</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="gvp" data-wiki="G._V._Prakash_Kumar"><span class="av" style="background:#0f766e">GV</span><div><b>G. V. Prakash</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="pradeep" data-wiki="Pradeep_Kumar_(musician)"><span class="av" style="background:#be123c">PK</span><div><b>Pradeep Kumar</b><span>Singer &amp; composer</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="sean" data-wiki="Sean_Roldan"><span class="av" style="background:#1d4ed8">SR</span><div><b>Sean Roldan</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
-        </div>
-        <div class="fcard">
-          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l9.5-9.5"/><path d="M12 9l3-3 3 3-3 3"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>Cricket favourites</h3>
-          <p>He loves playing cricket, from local grounds to corporate tournaments.</p>
-          <p class="sub-h">Favourite players <span>· tap to open profile</span></p>
-          <div class="people"><a class="person plink" data-wiki="AB_de_Villiers" href="https://en.wikipedia.org/wiki/AB_de_Villiers" target="_blank" rel="noopener"><span class="av" style="background:#111827">AB</span><div><b>AB de Villiers</b><span>Batsman</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Matthew_Hayden" href="https://en.wikipedia.org/wiki/Matthew_Hayden" target="_blank" rel="noopener"><span class="av" style="background:#b45309">MH</span><div><b>Matthew Hayden</b><span>Batsman</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Glenn_McGrath" href="https://en.wikipedia.org/wiki/Glenn_McGrath" target="_blank" rel="noopener"><span class="av" style="background:#15803d">GM</span><div><b>Glenn McGrath</b><span>Bowler</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Andrew_Flintoff" href="https://en.wikipedia.org/wiki/Andrew_Flintoff" target="_blank" rel="noopener"><span class="av" style="background:#1e3a8a">AF</span><div><b>Andrew Flintoff</b><span>All-rounder</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" href="https://www.royalchallengers.com/" target="_blank" rel="noopener"><span class="av" style="background:#c8102e;box-shadow:inset 0 0 0 2px #c9a227;font-size:.6rem">RCB</span><div><b>RCB</b><span>Favourite IPL team</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section id="places">
     <div class="wrap">
@@ -771,16 +761,6 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
   </section>
 
-  <section id="journey">
-    <div class="wrap">
-      <div class="sec-h"><div><p class="eyebrow">Journey</p><h2>Work &amp; studies</h2></div></div>
-      <div class="jacc">
-        <details class="jd"><summary><span class="jic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></span><span class="jt2"><b>Worked at</b><small>Purpleslate · Sthira IT Solutions</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="jcards jw"><a class="jc w" href="https://purpleslate.com/" target="_blank" rel="noopener"><span class="logo" aria-hidden="true">PS</span><span class="jt"><b>Purpleslate</b><span>Technology Engineer · Chennai</span><em>2021 – Now</em></span><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="jc w" href="https://www.sthiraits.com/" target="_blank" rel="noopener"><span class="logo" aria-hidden="true">ST</span><span class="jt"><b>Sthira IT Solutions</b><span>Software Engineer · Bangalore</span><em>2017 – 2021</em></span><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div></details>
-        <details class="jd"><summary><span class="jic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span class="jt2"><b>Studied at</b><small>MCA · B.Sc. Mathematics (CA) · Schooling</small></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="jcards js"><a class="jc s" href="https://kitcbe.com/" target="_blank" rel="noopener"><span class="logo" aria-hidden="true">KIT</span><span class="jt"><b>Kalaignar Karunanidhi Inst. of Technology</b><span>MCA · Coimbatore</span><em>2012 – 2015</em></span><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="jc s" href="https://www.nandhaarts.org/" target="_blank" rel="noopener"><span class="logo" aria-hidden="true">NA</span><span class="jt"><b>Nandha Arts and Science College</b><span>B.Sc. Maths (CA) · Erode</span><em>2009 – 2012</em></span><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="jc s" href="https://shreegurukulam.org/" target="_blank" rel="noopener"><span class="logo" aria-hidden="true">SG</span><span class="jt"><b>Shree Gurukulam HSS</b><span>11th &amp; 12th · Gobichettipalayam</span><em>2007 – 2009</em></span><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="jc s" href="https://sakthivigneswarakn.in/" target="_blank" rel="noopener"><span class="logo" aria-hidden="true">SV</span><span class="jt"><b>Sakthi Vigneswara Kalvi Nilayam</b><span>6th – 10th · Pongupalayam</span><em>2003 – 2007</em></span><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div></details>
-      </div>
-    </div>
-  </section>
-
   <section id="bike">
     <div class="wrap">
       <p class="bike-line">Where every trip begins: highway mornings, roadside breaks and quiet night rides on his first bike.</p>
@@ -811,6 +791,14 @@ svg.leaflet-zoom-animated{will-change:transform}
 </div>
 <div class="toast" id="toast" hidden role="status"></div>
 <div class="hovercard" id="hovercard" hidden aria-hidden="true"><img id="hcImg" alt=""><div class="hc-cap"><b id="hcName"></b><span>Photo: Wikipedia</span></div></div>
+<div class="pm-back" id="pmBack" hidden><div class="pm" role="dialog" aria-modal="true" aria-labelledby="pmName">
+  <button class="pm-x" id="pmX" type="button" aria-label="Close">&times;</button>
+  <div class="pm-top"><img id="pmImg" src="" alt=""><div><h3 id="pmName"></h3><p class="pm-d" id="pmDesc"></p></div></div>
+  <p class="pm-t" id="pmText"></p>
+  <div class="pm-band" id="pmBand">Personal details</div><dl id="pmRows"></dl>
+  <div id="pmHiWrap" hidden><div class="pm-band">Highlights</div><dl id="pmHi"></dl></div>
+  <div class="pm-btns"><a class="pm-wk" id="pmWk" target="_blank" rel="noopener">Read on Wikipedia</a><a class="pm-yt" id="pmYt" target="_blank" rel="noopener" hidden>Listen on YouTube</a></div>
+</div></div>
 <div class="cm-back" id="cmBack" hidden><div class="cm" role="dialog" aria-modal="true" aria-labelledby="cmName">
   <button class="cm-x" id="cmX" type="button" aria-label="Close">×</button>
   <div class="cm-av" id="cmAv"></div><h3 id="cmName"></h3><p class="cm-t" id="cmT"></p><ul id="cmList"></ul>
@@ -911,7 +899,7 @@ function openC(k){const d=COMPOSERS[k];if(!d)return;cmLast=document.activeElemen
  document.getElementById('cmYt').href='https://www.youtube.com/results?search_query='+d.q;document.getElementById('cmWeb').href='https://en.wikipedia.org/wiki/'+d.w;
  cmBack.hidden=false;document.getElementById('cmX').focus();}
 function closeC(){cmBack.hidden=true;cmLast&&cmLast.focus();}
-document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>openC(b.dataset.c));
+
 document.getElementById('cmX').onclick=closeC;
 cmBack.addEventListener('click',e=>{if(e.target===cmBack)closeC();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!cmBack.hidden)closeC();});
@@ -945,24 +933,91 @@ function showHC(el){if(!matchMedia('(hover:hover)').matches)return;hcFor=el;
   wikiImg(el.dataset.wiki,640).then(src=>{if(hcFor!==el||!src)return;hcImg.src=src;hcImg.alt=el.querySelector('div').firstChild.textContent;
     hcName.textContent=el.querySelector('div').firstChild.textContent;placeHC(el);hc.hidden=false;});}
 function hideHC(){hcFor=null;hc.hidden=true;}
-document.querySelectorAll('.plc[data-wiki]').forEach(el=>{el.addEventListener('mouseenter',()=>showHC(el));el.addEventListener('mouseleave',hideHC);el.addEventListener('focus',()=>showHC(el));el.addEventListener('blur',hideHC);});
+document.querySelectorAll('.plc[data-wiki],.person.plink[data-wiki]').forEach(el=>{el.addEventListener('mouseenter',()=>showHC(el));el.addEventListener('mouseleave',hideHC);el.addEventListener('focus',()=>showHC(el));el.addEventListener('blur',hideHC);});
 addEventListener('scroll',()=>{if(!hc.hidden)hideHC();},{passive:true});
 
 
-/* mini maps in the Native place / Works in boxes */
+
+/* Wikipedia-style details panel for favourite people */
 (function(){
-  function mini(id,pos,label){
+  const back=document.getElementById('pmBack');if(!back)return;
+  const $=id=>document.getElementById(id);let last=null,token=0;
+  const MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function fmtDate(t){const m=/^\+?(\d{4})-(\d{2})-(\d{2})/.exec(t||'');if(!m)return '';
+    const y=+m[1],mo=+m[2],d=+m[3];if(!mo)return String(y);return (d?d+' ':'')+MON[mo-1]+' '+y;}
+  function age(t,end){const m=/^\+?(\d{4})-(\d{2})-(\d{2})/.exec(t||'');if(!m)return '';
+    const b=new Date(+m[1],(+m[2]||1)-1,+m[3]||1),n=end?new Date(end.slice(1,11)):new Date();
+    let a=n.getFullYear()-b.getFullYear();if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate()))a--;return a;}
+  const api='https://www.wikidata.org/w/api.php?format=json&origin=*&action=wbgetentities';
+  async function facts(q){
+    const c=(await (await fetch(api+'&props=claims&ids='+q)).json()).entities[q].claims||{};
+    const vals=(p,n=1)=>(c[p]||[]).filter(x=>x.mainsnak&&x.mainsnak.datavalue).slice(0,n).map(x=>x.mainsnak.datavalue.value);
+    const ids=new Set();['P19','P20','P27','P106','P26','P166','P115','P127','P118','P413','P54'].forEach(p=>vals(p,4).forEach(v=>v&&v.id&&ids.add(v.id)));
+    let L={};if(ids.size){const r=await (await fetch(api+'&props=labels&languages=en&ids='+[...ids].slice(0,45).join('|'))).json();
+      for(const k in r.entities){L[k]=(r.entities[k].labels&&r.entities[k].labels.en||{}).value||'';}}
+    const names=(p,n)=>vals(p,n).map(v=>L[v.id]).filter(Boolean).join(', ');
+    const rows=[],born=vals('P569')[0],died=vals('P570')[0];
+    if(born){let t=fmtDate(born.time);if(!died)t+=' (age '+age(born.time)+')';const pl=names('P19',1);rows.push(['Born',t+(pl?', '+pl:'')]);}
+    if(died){const pl=names('P20',1);rows.push(['Died',fmtDate(died.time)+' (aged '+age(born&&born.time,died.time)+')'+(pl?', '+pl:'')]);}
+    [['Nationality','P27',1],['Occupation','P106',3],['Position','P413',1],['Spouse','P26',1],['Awards','P166',3]].forEach(([k,p,n])=>{const v=names(p,n);if(v)rows.push([k,v]);});
+    const inc=vals('P571')[0];if(inc)rows.push(['Founded',fmtDate(inc.time)]);
+    [['Home ground','P115',1],['League','P118',1],['Owner','P127',1]].forEach(([k,p,n])=>{const v=names(p,n);if(v)rows.push([k,v]);});
+    return rows;
+  }
+  function fill(dl,rows){dl.innerHTML='';rows.forEach(([a,b])=>{const d=document.createElement('div');d.innerHTML='<dt></dt><dd></dd>';d.children[0].textContent=a;d.children[1].textContent=b;dl.appendChild(d);});}
+  async function open(el){
+    const t=el.dataset.wiki,my=++token;last=document.activeElement;
+    const nm=(el.querySelector('b')||el).textContent.trim();
+    $('pmName').textContent=nm;$('pmDesc').textContent='';$('pmText').textContent='Loading from Wikipedia…';
+    $('pmImg').src='';$('pmImg').alt=nm;$('pmWk').href='https://en.wikipedia.org/wiki/'+t;
+    $('pmBand').textContent=t.startsWith('Royal_Challengers')?'Team details':'Personal details';
+    $('pmRows').innerHTML='<div class="pm-note">Loading…</div>';
+    const cd=el.dataset.c&&typeof COMPOSERS!=='undefined'?COMPOSERS[el.dataset.c]:null;
+    $('pmHiWrap').hidden=!cd;if(cd)fill($('pmHi'),cd.rows);
+    const yt=$('pmYt');yt.hidden=!cd;if(cd)yt.href='https://www.youtube.com/results?search_query='+cd.q;
+    back.hidden=false;document.body.style.overflow='hidden';$('pmX').focus();
+    try{
+      const d=await (await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(t),{headers:{Accept:'application/json'}})).json();
+      if(my!==token)return;
+      $('pmName').textContent=d.title||nm;$('pmDesc').textContent=d.description||'';$('pmText').textContent=d.extract||'';
+      const src=d.thumbnail&&d.thumbnail.source;if(src)$('pmImg').src=src.replace(/\/(\d+)px-/,'/320px-');
+      const rows=d.wikibase_item?await facts(d.wikibase_item):[];
+      if(my!==token)return;
+      if(rows.length)fill($('pmRows'),rows);else $('pmRows').innerHTML='<div class="pm-note">No extra details listed on Wikipedia.</div>';
+    }catch(e){if(my!==token)return;$('pmText').textContent='Details could not load right now. Tap "Read on Wikipedia" to see the full page.';$('pmRows').innerHTML='';}
+  }
+  function close(){back.hidden=true;document.body.style.overflow='';token++;last&&last.focus();}
+  document.querySelectorAll('.person.plink[data-wiki]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();e.stopImmediatePropagation();if(typeof hideHC==='function')hideHC();open(el);}));
+  $('pmX').onclick=close;back.addEventListener('click',e=>{if(e.target===back)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!back.hidden)close();});
+})();
+
+/* location maps: built on first hover / tap */
+(function(){
+  const spots={'map-native':[[11.20458,77.36031],'Perumanallur'],'map-work':[[12.9830,80.2594],'Thiruvanmiyur']};
+  const made={};
+  function build(id){
     const el=document.getElementById(id);if(!el)return;
-    if(!window.L){el.classList.add('none');el.textContent=label;return;}
-    const map=L.map(el,{scrollWheelZoom:false,zoomControl:false,attributionControl:true}).setView(pos,12);
+    if(made[id]){made[id].invalidateSize();return;}
+    const [pos,label]=spots[id];
+    if(!window.L){el.classList.add('none');el.textContent=label;made[id]={invalidateSize(){}};return;}
+    const map=L.map(el,{scrollWheelZoom:false,zoomControl:false}).setView(pos,12);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',
       attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
     L.circleMarker(pos,{radius:8,color:'#ffffff',weight:3,fillColor:'#d93025',fillOpacity:1}).addTo(map)
      .bindTooltip('<span class="mtip-s">'+label+'</span>',{direction:'top',offset:[0,-8],permanent:true});
-    addEventListener('resize',()=>map.invalidateSize());
+    made[id]=map;setTimeout(()=>map.invalidateSize(),200);
   }
-  mini('map-native',[11.20458,77.36031],'Perumanallur');
-  mini('map-work',[12.9830,80.2594],'Thiruvanmiyur');
+  document.querySelectorAll('.fact.fmap').forEach(box=>{
+    const id=box.querySelector('.mini').id,btn=box.querySelector('.maplink');
+    box.addEventListener('mouseenter',()=>build(id));
+    btn.addEventListener('click',e=>{e.stopPropagation();
+      const open=!box.classList.contains('open');
+      document.querySelectorAll('.fact.fmap.open').forEach(b=>{b.classList.remove('open');b.querySelector('.maplink').setAttribute('aria-expanded','false');});
+      if(open){box.classList.add('open');btn.setAttribute('aria-expanded','true');build(id);}
+    });
+  });
+  document.addEventListener('click',e=>{if(!e.target.closest('.fact.fmap'))document.querySelectorAll('.fact.fmap.open').forEach(b=>{b.classList.remove('open');b.querySelector('.maplink').setAttribute('aria-expanded','false');});});
 })();
 
 /* age from birth date */
