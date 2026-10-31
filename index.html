@@ -521,9 +521,10 @@ svg.leaflet-zoom-animated{will-change:transform}
 .maplink:hover{background:var(--panel)}
 .mpop{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;background:var(--bg);border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 30px -10px rgba(0,0,0,.35);padding:6px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s,visibility .15s}
 .fact.fmap:last-child .mpop{top:auto;bottom:calc(100% + 6px)}
-@media (hover:hover){.fact.fmap:hover .mpop{opacity:1;visibility:visible;transform:none}}
-.fact.fmap.open .mpop{opacity:1;visibility:visible;transform:none}
-.mpop .mini{height:170px;border-radius:8px;overflow:hidden;position:relative;z-index:0;background:var(--panel)}
+.fact.fmap.show .mpop{opacity:1;visibility:visible;transform:none}
+.mpop{position:absolute}.mpop .mpop-a{position:absolute;inset:6px 6px 30px;z-index:5;border-radius:8px}
+.maplink{text-decoration:none;display:inline-flex;align-items:center}
+.mpop .mini{height:150px;border-radius:8px;overflow:hidden;position:relative;z-index:0;background:var(--panel)}
 .mpop .mini.none{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem}
 .gml{display:block;text-align:center;font-size:.78rem;font-weight:600;color:var(--accent);text-decoration:none;padding:6px 0 2px}
 .mtip-s{font-size:.75rem;font-weight:600;padding:1px 2px}
@@ -564,6 +565,29 @@ svg.leaflet-zoom-animated{will-change:transform}
 .pm-yt{background:#e62117;color:#fff}
 .pm-yt[hidden]{display:none}
 .pm-note{color:var(--muted);font-size:.82rem;padding:6px 2px}
+/* Wikipedia-style life story */
+.wk-h{font-family:Georgia,'Linux Libertine','Times New Roman',serif;font-weight:400;font-size:2rem;margin:0 0 18px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.wiki{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;align-items:start}
+.wk-toc{position:sticky;top:76px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.88rem}
+.wk-toc summary{font-weight:700;cursor:pointer;list-style:none}
+.wk-toc summary::-webkit-details-marker{display:none}
+.wk-toc ol{margin:8px 0 0;padding-left:18px}
+.wk-toc ol ol{margin:2px 0 4px;padding-left:16px;font-size:.84rem}
+.wk-toc li{margin:3px 0}
+.wk-toc a{color:var(--accent);text-decoration:none}
+.wk-toc a:hover{text-decoration:underline}
+.wk-body{font-size:1rem;line-height:1.7;min-width:0}
+.wk-body h3{font-family:Georgia,'Linux Libertine','Times New Roman',serif;font-weight:400;font-size:1.55rem;margin:26px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line);scroll-margin-top:80px}
+.wk-body h3:first-of-type{margin-top:0}
+.wk-body h4{font-size:1.02rem;font-weight:700;margin:18px 0 6px;scroll-margin-top:80px}
+.wk-body p{margin:0 0 12px}
+.wk-fig{float:right;clear:right;width:170px;margin:4px 0 12px 18px;border:1px solid var(--line);background:var(--panel);padding:6px;border-radius:4px}
+.wk-fig .imgbtn{display:block;width:100%;height:110px;border-radius:2px;overflow:hidden}
+.wk-fig img{width:100%;height:100%;object-fit:cover}
+.wk-fig figcaption{font-size:.78rem;color:var(--muted);padding-top:5px}
+.wk-body::after{content:"";display:block;clear:both}
+@media (max-width:1000px){.wiki{grid-template-columns:1fr}.wk-toc{position:static}}
+@media (max-width:700px){.wk-fig{width:130px;margin:2px 0 8px 12px}.wk-fig .imgbtn{height:90px}}
 </style>
 </head>
 <body>
@@ -601,8 +625,8 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
 
     <div class="facts">
-      <div class="fact fmap"><div class="k">Native place<button class="maplink" type="button" aria-expanded="false" aria-controls="pop-map-native">Map</button></div><div class="fbot"><div><div class="v">Perumanallur</div><div class="s">Tiruppur district</div></div></div><div class="mpop" id="pop-map-native"><div class="mini" id="map-native" role="region" aria-label="Map showing Perumanallur"></div><a class="gml" href="https://www.google.com/maps/search/?api=1&amp;query=11.20458%2C77.36031" target="_blank" rel="noopener">Open in Google Maps</a></div></div>
-      <div class="fact fmap"><div class="k">Works in<button class="maplink" type="button" aria-expanded="false" aria-controls="pop-map-work">Map</button></div><div class="fbot"><div><div class="v">Thiruvanmiyur</div><div class="s">Chennai, Tamil Nadu</div></div></div><div class="mpop" id="pop-map-work"><div class="mini" id="map-work" role="region" aria-label="Map showing Thiruvanmiyur"></div><a class="gml" href="https://www.google.com/maps/search/?api=1&amp;query=Thiruvanmiyur%2C+Chennai" target="_blank" rel="noopener">Open in Google Maps</a></div></div>
+      <div class="fact fmap"><div class="k">Native place<a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=11.20458%2C77.36031" target="_blank" rel="noopener" aria-describedby="pop-map-native">Map</a></div><div class="fbot"><div><div class="v">Perumanallur</div><div class="s">Tiruppur district</div></div></div><div class="mpop" id="pop-map-native"><a class="mpop-a" href="https://www.google.com/maps/search/?api=1&amp;query=11.20458%2C77.36031" target="_blank" rel="noopener" aria-label="Open in Google Maps"></a><div class="mini" id="map-native" role="region" aria-label="Map showing Perumanallur"></div><a class="gml" href="https://www.google.com/maps/search/?api=1&amp;query=11.20458%2C77.36031" target="_blank" rel="noopener">Open in Google Maps</a></div></div>
+      <div class="fact fmap"><div class="k">Works in<a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Thiruvanmiyur%2C+Chennai" target="_blank" rel="noopener" aria-describedby="pop-map-work">Map</a></div><div class="fbot"><div><div class="v">Thiruvanmiyur</div><div class="s">Chennai, Tamil Nadu</div></div></div><div class="mpop" id="pop-map-work"><a class="mpop-a" href="https://www.google.com/maps/search/?api=1&amp;query=Thiruvanmiyur%2C+Chennai" target="_blank" rel="noopener" aria-label="Open in Google Maps"></a><div class="mini" id="map-work" role="region" aria-label="Map showing Thiruvanmiyur"></div><a class="gml" href="https://www.google.com/maps/search/?api=1&amp;query=Thiruvanmiyur%2C+Chennai" target="_blank" rel="noopener">Open in Google Maps</a></div></div>
     </div>
   </div>
 
@@ -618,7 +642,7 @@ svg.leaflet-zoom-animated{will-change:transform}
         <div class="favbox" id="favourites">
           <div class="fb-h"><h2>Favourites</h2><span>Hover for a photo · tap for details</span></div>
           <div class="fb-grid">
-            <div class="fb-sec"><h3>Movies &amp; stars</h3><p>Enjoys all kinds of good movies, and nothing beats watching them in a theatre.</p><div class="people"><a class="person plink" data-wiki="Vijay_(actor)" href="https://en.wikipedia.org/wiki/Vijay_(actor)" target="_blank" rel="noopener"><span class="av" style="background:#c2410c">V</span><div><b>Vijay</b><span>Favourite actor</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Rajinikanth" href="https://en.wikipedia.org/wiki/Rajinikanth" target="_blank" rel="noopener"><span class="av" style="background:#7c3aed">R</span><div><b>Rajinikanth</b><span>Favourite actor</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div><div class="firstm" data-wiki="Movie_theater" data-fill="1"><span class="fimg"></span><div><small>First movie in a theatre</small><b>The Mummy Returns</b></div></div></div>
+            <div class="fb-sec"><h3>Movies &amp; stars</h3><p>Enjoys all kinds of good movies, and nothing beats watching them in a theatre.</p><div class="people"><a class="person plink" data-wiki="Vijay_(actor)" href="https://en.wikipedia.org/wiki/Vijay_(actor)" target="_blank" rel="noopener"><span class="av" style="background:#c2410c">V</span><div><b>Vijay</b><span>Favourite actor</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Rajinikanth" href="https://en.wikipedia.org/wiki/Rajinikanth" target="_blank" rel="noopener"><span class="av" style="background:#7c3aed">R</span><div><b>Rajinikanth</b><span>Favourite actor</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div></div>
             <div class="fb-sec"><h3>Favourite songs</h3><a class="song" href="https://www.youtube.com/results?search_query=Udhaya+Udhaya+song+Vijay+Simran" target="_blank" rel="noopener"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span><b>Udhaya Udhaya</b><span>Udhaya · Vijay &amp; Simran</span></span><em>Watch on YouTube</em></a>
           <a class="song" href="https://www.youtube.com/results?search_query=Oru+Dheivam+Thandha+Poove+song" target="_blank" rel="noopener"><span class="pl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><span><b>Oru Dheivam Thandha Poove</b><span>Kannathil Muthamittal · Madhavan &amp; Simran</span></span><em>Watch on YouTube</em></a></div>
             <div class="fb-sec fb-wide"><h3>Music directors</h3><div class="people"><button type="button" class="person plink pbtn" data-c="rahman" data-wiki="A._R._Rahman"><span class="av" style="background:#b45309">AR</span><div><b>A. R. Rahman</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="raja" data-wiki="Ilaiyaraaja"><span class="av" style="background:#6d28d9">IR</span><div><b>Ilaiyaraaja</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="gvp" data-wiki="G._V._Prakash_Kumar"><span class="av" style="background:#0f766e">GV</span><div><b>G. V. Prakash</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="pradeep" data-wiki="Pradeep_Kumar_(musician)"><span class="av" style="background:#be123c">PK</span><div><b>Pradeep Kumar</b><span>Singer &amp; composer</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button><button type="button" class="person plink pbtn" data-c="sean" data-wiki="Sean_Roldan"><span class="av" style="background:#1d4ed8">SR</span><div><b>Sean Roldan</b><span>Music director</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div></div>
@@ -633,13 +657,14 @@ svg.leaflet-zoom-animated{will-change:transform}
         <dl>
           <div class="row"><dt>Full name</dt><dd>Ramesh G</dd></div>
           <div class="row"><dt>Born</dt><dd>14 October 1992 <span id="age"></span></dd></div>
+          <div class="row"><dt>Married</dt><dd>18 May 2026</dd></div>
           <div class="row"><dt>Native place</dt><dd>Perumanallur, near Ayyampalayam</dd></div>
           <div class="row"><dt>District</dt><dd>Tiruppur, Tamil Nadu</dd></div>
           <div class="row"><dt>Works in</dt><dd>Thiruvanmiyur, Chennai</dd></div>
           <div class="row"><dt>Work</dt><dd>Technology Engineer, Purpleslate (since 2021)</dd></div>
           <div class="row"><dt>Education</dt><dd>MCA; B.Sc. Mathematics (CA)</dd></div>
           <div class="row"><dt>Languages</dt><dd>Tamil, English</dd></div>
-          <div class="row"><dt>Hobbies</dt><dd>Cricket, music, movies, cooking, bike trips</dd></div>
+          <div class="row"><dt>Hobbies</dt><dd>Listening to music, watching movies, watching sports, and playing cricket when everyone gets together</dd></div>
           <div class="row"><dt>Nature</dt><dd>Jolly and cheerful; loves calm and nature</dd></div>
           <div class="row"><dt>Loves cooking</dt><dd>South Indian vegetarian food</dd></div>
         </dl>
@@ -699,33 +724,12 @@ svg.leaflet-zoom-animated{will-change:transform}
               <ol><li><a href="#h-school">Schooling</a></li><li><a href="#h-hss">Higher secondary</a></li><li><a href="#h-college">College</a></li></ol></li>
             <li><a href="#h-career">Career</a>
               <ol><li><a href="#h-chennai">First job in Chennai</a></li><li><a href="#h-hyd">Course in Hyderabad</a></li><li><a href="#h-sthira">Sthira IT Solutions</a></li><li><a href="#h-ps">Purpleslate</a></li></ol></li>
+            <li><a href="#h-personal">Personal life</a></li>
           </ol>
           </details>
         </nav>
 
         <article class="wk-body">
-          <aside class="wk-box" aria-label="Personal details">
-            <div class="wk-title">Ramesh G</div>
-            <button class="imgbtn wk-img" type="button" data-open="profile" aria-label="Open photo: Ramesh G"><img loading="lazy" src="profile-thumb.jpg" alt="Ramesh G" style="object-position:50% 30%"></button>
-            <div class="wk-cap">Ramesh G in 2025</div>
-            <div class="wk-band">Personal details</div>
-            <dl>
-              <div><dt>Born</dt><dd>14 October 1992</dd></div>
-              <div><dt>Native place</dt><dd>Perumanallur, near Ayyampalayam, Tiruppur district, Tamil Nadu</dd></div>
-              <div><dt>Education</dt><dd>MCA (2015)<br>B.Sc. Mathematics with CA (2012)</dd></div>
-              <div><dt>Occupation</dt><dd>Technology Engineer</dd></div>
-              <div><dt>Works at</dt><dd>Purpleslate, Thiruvanmiyur, Chennai</dd></div>
-              <div><dt>Languages</dt><dd>Tamil, English</dd></div>
-            </dl>
-            <div class="wk-band">Career</div>
-            <dl>
-              <div><dt>2021 &ndash; now</dt><dd>Purpleslate, Chennai</dd></div>
-              <div><dt>2017 &ndash; 2021</dt><dd>Sthira IT Solutions, Bangalore</dd></div>
-              <div><dt>2015</dt><dd>Tech Mahindra (BPO), Chennai</dd></div>
-            </dl>
-          </aside>
-
-          <p class="wk-lead"><b>Ramesh G</b> (born 14 October 1992) is a technology engineer from Perumanallur, near Ayyampalayam in Tiruppur district, Tamil Nadu. He grew up and went to school in his native village, studied in Erode and Coimbatore, worked in Bangalore from 2017 to 2021, and has worked at Purpleslate in Chennai since 2021.</p>
 
           <h3 id="h-early">Early life</h3>
           <figure class="wk-fig"><button class="imgbtn" type="button" data-open="village-walk" aria-label="Open photo: a walk in the village"><img loading="lazy" src="village-walk-thumb.jpg" alt="A walk in the village near Perumanallur"></button><figcaption>A walk in the village (2020)</figcaption></figure>
@@ -733,7 +737,7 @@ svg.leaflet-zoom-animated{will-change:transform}
 
           <h3 id="h-edu">Education</h3>
           <h4 id="h-school">Schooling</h4>
-          <p>He began his schooling at the Government School in Perumanallur. From 6th to 10th standard (2003&ndash;2007), he studied at Sakthi Vigneswara Kalvi Nilayam, which was then located at Kanakkampalayam Pirivu; the school has since moved to a new campus.</p>
+          <p>He began his schooling at the Government School in Perumanallur. When he was in 4th standard, he watched his first movie in a theatre, <i>The Mummy Returns</i>. From 6th to 10th standard (2003&ndash;2007), he studied at Sakthi Vigneswara Kalvi Nilayam, which was then located at Kanakkampalayam Pirivu; the school has since moved to a new campus.</p>
           <p>In 6th and 7th standard, he travelled to school by school van and bus. From 8th standard onwards, his family allowed him to cycle to school. At school he took part in running and volleyball, but cricket was the game he played the most.</p>
 
           <h4 id="h-hss">Higher secondary</h4>
@@ -756,6 +760,9 @@ svg.leaflet-zoom-animated{will-change:transform}
 
           <h4 id="h-ps">Purpleslate, Chennai</h4>
           <p>In 2021, he returned to Chennai and joined Purpleslate as a Technology Engineer. He works at its office in Thiruvanmiyur.</p>
+
+          <h3 id="h-personal">Personal life</h3>
+          <p>Ramesh married on 18 May 2026.</p>
         </article>
       </div>
     </div>
@@ -1009,15 +1016,13 @@ addEventListener('scroll',()=>{if(!hc.hidden)hideHC();},{passive:true});
     made[id]=map;setTimeout(()=>map.invalidateSize(),200);
   }
   document.querySelectorAll('.fact.fmap').forEach(box=>{
-    const id=box.querySelector('.mini').id,btn=box.querySelector('.maplink');
-    box.addEventListener('mouseenter',()=>build(id));
-    btn.addEventListener('click',e=>{e.stopPropagation();
-      const open=!box.classList.contains('open');
-      document.querySelectorAll('.fact.fmap.open').forEach(b=>{b.classList.remove('open');b.querySelector('.maplink').setAttribute('aria-expanded','false');});
-      if(open){box.classList.add('open');btn.setAttribute('aria-expanded','true');build(id);}
-    });
+    const id=box.querySelector('.mini').id,btn=box.querySelector('.maplink'),pop=box.querySelector('.mpop');let t;
+    const on=()=>{if(!matchMedia('(hover:hover)').matches)return;clearTimeout(t);box.classList.add('show');build(id);};
+    const off=()=>{t=setTimeout(()=>box.classList.remove('show'),180);};
+    btn.addEventListener('mouseenter',on);btn.addEventListener('mouseleave',off);
+    btn.addEventListener('focus',on);btn.addEventListener('blur',off);
+    pop.addEventListener('mouseenter',()=>clearTimeout(t));pop.addEventListener('mouseleave',off);
   });
-  document.addEventListener('click',e=>{if(!e.target.closest('.fact.fmap'))document.querySelectorAll('.fact.fmap.open').forEach(b=>{b.classList.remove('open');b.querySelector('.maplink').setAttribute('aria-expanded','false');});});
 })();
 
 /* age from birth date */
