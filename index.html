@@ -512,6 +512,52 @@ svg.leaflet-zoom-animated{will-change:transform}
 .pbtn{font:inherit;background:var(--bg);text-align:left;cursor:pointer;color:var(--ink)}
 .cpics{max-width:520px}
 .cpics .imgbtn{height:150px}
+
+/* mini maps inside fact boxes */
+.fact.fmap{padding:10px 12px 10px;gap:6px;overflow:hidden}
+.fact .mini{flex:1;min-height:60px;border-radius:10px;overflow:hidden;border:1px solid var(--line);position:relative;z-index:0;background:var(--panel)}
+.fact .mini.none{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem}
+.fact .fbot{display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.fact .fbot .v{margin-top:0}
+.maplink{flex:none;font-size:.78rem;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.maplink:hover{background:var(--panel)}
+.mtip-s{font-size:.75rem;font-weight:600;padding:1px 2px}
+@media (max-width:1100px){.facts{height:auto!important}.fact.fmap{min-height:0}.fact .mini{flex:none;height:110px;min-height:0}}
+@media (max-width:760px){.facts{grid-template-columns:1fr!important}.fact .mini{height:120px}}
+
+/* Wikipedia-style life story */
+.wiki{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;align-items:start}
+.wk-toc{position:sticky;top:76px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.88rem}
+.wk-toc summary{font-weight:700;cursor:pointer;list-style:none}
+.wk-toc summary::-webkit-details-marker{display:none}
+.wk-toc ol{margin:8px 0 0;padding-left:18px;counter-reset:none}
+.wk-toc ol ol{margin:2px 0 4px;padding-left:16px;font-size:.84rem}
+.wk-toc li{margin:3px 0}
+.wk-toc a{color:var(--accent);text-decoration:none}
+.wk-toc a:hover{text-decoration:underline}
+.wk-body{font-size:1rem;line-height:1.7;min-width:0}
+.wk-body h3{font-family:Georgia,'Linux Libertine','Times New Roman',serif;font-weight:400;font-size:1.55rem;margin:26px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--line);scroll-margin-top:80px}
+.wk-body h4{font-size:1.02rem;font-weight:700;margin:18px 0 6px;scroll-margin-top:80px}
+.wk-body p{margin:0 0 12px}
+.wk-lead{font-size:1.04rem}
+.wk-box{float:right;width:300px;margin:0 0 16px 22px;border:1px solid var(--line);background:var(--panel);border-radius:4px;padding:10px;font-size:.86rem;line-height:1.45}
+.wk-title{text-align:center;font-weight:700;font-size:1.15rem;margin-bottom:8px}
+.wk-img{display:block;width:100%;height:300px;border-radius:2px;overflow:hidden}
+.wk-img img{width:100%;height:100%;object-fit:cover}
+.wk-cap{text-align:center;font-size:.8rem;color:var(--muted);margin:6px 0 8px}
+.wk-band{background:var(--accent-soft);color:var(--ink);text-align:center;font-weight:700;padding:4px 6px;margin:8px 0 4px}
+.wk-box dl{margin:0}
+.wk-box dl>div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;padding:5px 2px;border-top:1px solid var(--line)}
+.wk-box dl>div:first-child{border-top:0}
+.wk-box dt{font-weight:700}
+.wk-box dd{margin:0}
+.wk-fig{float:right;clear:right;width:220px;margin:4px 0 12px 18px;border:1px solid var(--line);background:var(--panel);padding:6px;border-radius:4px}
+.wk-fig .imgbtn{display:block;width:100%;height:150px;border-radius:2px;overflow:hidden}
+.wk-fig img{width:100%;height:100%;object-fit:cover}
+.wk-fig figcaption{font-size:.78rem;color:var(--muted);padding-top:5px}
+.wk-body::after{content:"";display:block;clear:both}
+@media (max-width:1000px){.wiki{grid-template-columns:1fr}.wk-toc{position:static}}
+@media (max-width:700px){.wk-box{float:none;width:auto;margin:0 0 16px}.wk-fig{float:none;width:auto;margin:0 0 12px}.wk-fig .imgbtn{height:200px}.wk-img{height:320px}}
 </style>
 </head>
 <body>
@@ -536,6 +582,7 @@ svg.leaflet-zoom-animated{will-change:transform}
     <a href="#favourites">Favourites</a>
     <a href="#places">Places</a>
     <a href="#hometown">Hometown</a>
+    <a href="#history">History</a>
     <a href="#journey">Journey</a>
   </div>
 </nav>
@@ -549,8 +596,8 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
 
     <div class="facts">
-      <a class="fact" href="#about"><div class="k">Native place<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div><div class="v">Perumanallur</div><div class="s">Tiruppur district</div></a>
-      <a class="fact" href="#about"><div class="k">Works in<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></div><div class="v">Chennai</div><div class="s">Tamil Nadu</div></a>
+      <div class="fact fmap"><div class="k">Native place</div><div class="mini" id="map-native" role="region" aria-label="Map showing Perumanallur, Tiruppur district"></div><div class="fbot"><div><div class="v">Perumanallur</div><div class="s">Tiruppur district</div></div><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=11.20458%2C77.36031" target="_blank" rel="noopener">Open map</a></div></div>
+      <div class="fact fmap"><div class="k">Works in</div><div class="mini" id="map-work" role="region" aria-label="Map showing Thiruvanmiyur, Chennai"></div><div class="fbot"><div><div class="v">Thiruvanmiyur</div><div class="s">Chennai, Tamil Nadu</div></div><a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Thiruvanmiyur%2C+Chennai" target="_blank" rel="noopener">Open map</a></div></div>
     </div>
   </div>
 
@@ -572,7 +619,7 @@ svg.leaflet-zoom-animated{will-change:transform}
           <div class="row"><dt>Born</dt><dd>14 October 1992 <span id="age"></span></dd></div>
           <div class="row"><dt>Native place</dt><dd>Perumanallur, near Ayyampalayam</dd></div>
           <div class="row"><dt>District</dt><dd>Tiruppur, Tamil Nadu</dd></div>
-          <div class="row"><dt>Works in</dt><dd>Chennai</dd></div>
+          <div class="row"><dt>Works in</dt><dd>Thiruvanmiyur, Chennai</dd></div>
           <div class="row"><dt>Work</dt><dd>Technology Engineer, Purpleslate (since 2021)</dd></div>
           <div class="row"><dt>Education</dt><dd>MCA; B.Sc. Mathematics (CA)</dd></div>
           <div class="row"><dt>Languages</dt><dd>Tamil, English</dd></div>
@@ -581,11 +628,7 @@ svg.leaflet-zoom-animated{will-change:transform}
           <div class="row"><dt>Loves cooking</dt><dd>South Indian vegetarian food</dd></div>
         </dl>
       </aside>
-        <div class="locbox">
-          <div class="loc-h"><b>Hometown</b><span>Perumanallur junction, Tiruppur district</span></div>
-          <div class="pmap" id="pmap" role="region" aria-label="Map showing Perumanallur junction"></div>
-          <a class="loc-btn" href="https://www.google.com/maps/search/?api=1&amp;query=11.20458%2C77.36031" target="_blank" rel="noopener">Open in Google Maps</a>
-        </div>
+</div>
       </div>
     </div>
   </section>
@@ -617,7 +660,6 @@ svg.leaflet-zoom-animated{will-change:transform}
         <div class="fcard">
           <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l9.5-9.5"/><path d="M12 9l3-3 3 3-3 3"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>Cricket favourites</h3>
           <p>He loves playing cricket, from local grounds to corporate tournaments.</p>
-          <div class="cpics"><button class="imgbtn" type="button" data-open="cricket-trophy" aria-label="Open photo: cricket tournament"><img loading="lazy" src="cricket-trophy-thumb.jpg" alt="Ramesh with a trophy at a cricket tournament"></button><button class="imgbtn" type="button" data-open="cricket-ground" aria-label="Open photo: on the cricket ground"><img loading="lazy" src="cricket-ground-thumb.jpg" alt="Ramesh with a bat on the ground" style="object-position:50% 40%"></button></div>
           <p class="sub-h">Favourite players <span>· tap to open profile</span></p>
           <div class="people"><a class="person plink" data-wiki="AB_de_Villiers" href="https://en.wikipedia.org/wiki/AB_de_Villiers" target="_blank" rel="noopener"><span class="av" style="background:#111827">AB</span><div><b>AB de Villiers</b><span>Batsman</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Matthew_Hayden" href="https://en.wikipedia.org/wiki/Matthew_Hayden" target="_blank" rel="noopener"><span class="av" style="background:#b45309">MH</span><div><b>Matthew Hayden</b><span>Batsman</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Glenn_McGrath" href="https://en.wikipedia.org/wiki/Glenn_McGrath" target="_blank" rel="noopener"><span class="av" style="background:#15803d">GM</span><div><b>Glenn McGrath</b><span>Bowler</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" data-wiki="Andrew_Flintoff" href="https://en.wikipedia.org/wiki/Andrew_Flintoff" target="_blank" rel="noopener"><span class="av" style="background:#1e3a8a">AF</span><div><b>Andrew Flintoff</b><span>All-rounder</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><a class="person plink" href="https://www.royalchallengers.com/" target="_blank" rel="noopener"><span class="av" style="background:#c8102e;box-shadow:inset 0 0 0 2px #c9a227;font-size:.6rem">RCB</span><div><b>RCB</b><span>Favourite IPL team</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
         </div>
@@ -650,6 +692,80 @@ svg.leaflet-zoom-animated{will-change:transform}
           <p>Perumanallur, near Ayyampalayam in Tiruppur district, is where Ramesh grew up and went to school. In 2025 his family moved to a new home here.</p>
           <p>Village temples, festivals like Vinayagar Chaturthi, and calm green surroundings are what he loves most about home.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="history">
+    <div class="wrap">
+      <div class="sec-h"><div><p class="eyebrow">History</p><h2>Life story</h2></div></div>
+      <div class="wiki">
+        <nav class="wk-toc" aria-label="Contents">
+          <details open><summary>Contents</summary>
+          <ol>
+            <li><a href="#h-early">Early life</a></li>
+            <li><a href="#h-edu">Education</a>
+              <ol><li><a href="#h-school">Schooling</a></li><li><a href="#h-hss">Higher secondary</a></li><li><a href="#h-college">College</a></li></ol></li>
+            <li><a href="#h-career">Career</a>
+              <ol><li><a href="#h-chennai">First job in Chennai</a></li><li><a href="#h-hyd">Course in Hyderabad</a></li><li><a href="#h-sthira">Sthira IT Solutions</a></li><li><a href="#h-ps">Purpleslate</a></li></ol></li>
+          </ol>
+          </details>
+        </nav>
+
+        <article class="wk-body">
+          <aside class="wk-box" aria-label="Personal details">
+            <div class="wk-title">Ramesh G</div>
+            <button class="imgbtn wk-img" type="button" data-open="profile" aria-label="Open photo: Ramesh G"><img loading="lazy" src="profile-thumb.jpg" alt="Ramesh G" style="object-position:50% 30%"></button>
+            <div class="wk-cap">Ramesh G in 2025</div>
+            <div class="wk-band">Personal details</div>
+            <dl>
+              <div><dt>Born</dt><dd>14 October 1992</dd></div>
+              <div><dt>Native place</dt><dd>Perumanallur, near Ayyampalayam, Tiruppur district, Tamil Nadu</dd></div>
+              <div><dt>Education</dt><dd>MCA (2015)<br>B.Sc. Mathematics with CA (2012)</dd></div>
+              <div><dt>Occupation</dt><dd>Technology Engineer</dd></div>
+              <div><dt>Works at</dt><dd>Purpleslate, Thiruvanmiyur, Chennai</dd></div>
+              <div><dt>Languages</dt><dd>Tamil, English</dd></div>
+            </dl>
+            <div class="wk-band">Career</div>
+            <dl>
+              <div><dt>2021 &ndash; now</dt><dd>Purpleslate, Chennai</dd></div>
+              <div><dt>2017 &ndash; 2021</dt><dd>Sthira IT Solutions, Bangalore</dd></div>
+              <div><dt>2015</dt><dd>Tech Mahindra (BPO), Chennai</dd></div>
+            </dl>
+          </aside>
+
+          <p class="wk-lead"><b>Ramesh G</b> (born 14 October 1992) is a technology engineer from Perumanallur, near Ayyampalayam in Tiruppur district, Tamil Nadu. He grew up and went to school in his native village, studied in Erode and Coimbatore, worked in Bangalore from 2017 to 2021, and has worked at Purpleslate in Chennai since 2021.</p>
+
+          <h3 id="h-early">Early life</h3>
+          <figure class="wk-fig"><button class="imgbtn" type="button" data-open="village-walk" aria-label="Open photo: a walk in the village"><img loading="lazy" src="village-walk-thumb.jpg" alt="A walk in the village near Perumanallur"></button><figcaption>A walk in the village (2020)</figcaption></figure>
+          <p>Ramesh spent his childhood in Perumanallur, a pleasant village near Ayyampalayam. He grew up there playing with his friends and enjoying village life.</p>
+
+          <h3 id="h-edu">Education</h3>
+          <h4 id="h-school">Schooling</h4>
+          <p>He began his schooling at the Government School in Perumanallur. From 6th to 10th standard (2003&ndash;2007), he studied at Sakthi Vigneswara Kalvi Nilayam, which was then located at Kanakkampalayam Pirivu; the school has since moved to a new campus.</p>
+          <p>In 6th and 7th standard, he travelled to school by school van and bus. From 8th standard onwards, his family allowed him to cycle to school. At school he took part in running and volleyball, but cricket was the game he played the most.</p>
+
+          <h4 id="h-hss">Higher secondary</h4>
+          <p>After completing 10th standard, he joined Shree Gurukulam Higher Secondary School in Gobichettipalayam for 11th and 12th standard (2007&ndash;2009). He stayed in the school hostel, which was his first time living away from his family.</p>
+          <p>Apart from his studies, he played throwball in open state-level and divisional matches, which he remembers as a very special moment. He also played cricket once a week and enjoyed the hostel food.</p>
+
+          <h4 id="h-college">College</h4>
+          <p>From 2009 to 2012, he studied B.Sc. Mathematics with Computer Applications at Nandha Arts and Science College, Erode. He travelled about 40 minutes by bus from his hometown each day, and those bus journeys, full of fun and chats with friends, are among his best memories.</p>
+          <p>From 2012 to 2015, he completed his MCA at Kalaignar Karunanidhi Institute of Technology, Coimbatore. Living away from his family once again, he shared a rented room with his friends, and he remembers those three years as the most enjoyable of his student life.</p>
+
+          <h3 id="h-career">Career</h3>
+          <h4 id="h-chennai">First job in Chennai</h4>
+          <p>In 2015, he moved to Chennai to look for a job. His first job was a temporary role at Tech Mahindra in Ambattur, Chennai, in a BPO voice process for Vodafone. He left the job after the Chennai floods of 2015 and attended many interviews while searching for a new role, but was not selected.</p>
+
+          <h4 id="h-hyd">Course in Hyderabad</h4>
+          <p>He then decided to take a course in Hyderabad, where courses cost much less than in Chennai. He completed the course in Secunderabad, Hyderabad, in April and May 2017.</p>
+
+          <h4 id="h-sthira">Sthira IT Solutions, Bangalore</h4>
+          <p>Later in 2017, with the help of a friend, he joined Sthira IT Solutions in Bangalore, where he worked for four years. For nine months of his first year, he worked at a client site. He then worked from the office, and during the COVID-19 pandemic he worked from home for about a year.</p>
+
+          <h4 id="h-ps">Purpleslate, Chennai</h4>
+          <p>In 2021, he returned to Chennai and joined Purpleslate as a Technology Engineer. He works at its office in Thiruvanmiyur.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -832,16 +948,20 @@ document.querySelectorAll('.plc[data-wiki]').forEach(el=>{el.addEventListener('m
 addEventListener('scroll',()=>{if(!hc.hidden)hideHC();},{passive:true});
 
 
-/* hometown map */
+/* mini maps in the Native place / Works in boxes */
 (function(){
-  const el=document.getElementById('pmap');
-  if(!window.L){el.classList.add('none');return;}
-  const pos=[11.20458,77.36031];
-  const map=L.map(el,{scrollWheelZoom:false}).setView(pos,13);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',
-    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
-  L.circleMarker(pos,{radius:9,color:'#ffffff',weight:3,fillColor:'#d93025',fillOpacity:1}).addTo(map)
-   .bindTooltip('<div class="mtip"><b>Perumanallur junction</b><span>Hometown · Tiruppur district</span></div>',{direction:'top',offset:[0,-10],permanent:true});
+  function mini(id,pos,label){
+    const el=document.getElementById(id);if(!el)return;
+    if(!window.L){el.classList.add('none');el.textContent=label;return;}
+    const map=L.map(el,{scrollWheelZoom:false,zoomControl:false,attributionControl:true}).setView(pos,12);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
+    L.circleMarker(pos,{radius:8,color:'#ffffff',weight:3,fillColor:'#d93025',fillOpacity:1}).addTo(map)
+     .bindTooltip('<span class="mtip-s">'+label+'</span>',{direction:'top',offset:[0,-8],permanent:true});
+    addEventListener('resize',()=>map.invalidateSize());
+  }
+  mini('map-native',[11.20458,77.36031],'Perumanallur');
+  mini('map-work',[12.9830,80.2594],'Thiruvanmiyur');
 })();
 
 /* age from birth date */
