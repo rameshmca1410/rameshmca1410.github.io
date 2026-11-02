@@ -139,6 +139,9 @@ svg.leaflet-zoom-animated{will-change:transform}
 .pv-pop b{display:block}.pv-pop span{display:block;font-size:.8rem;color:#54595d}.pv-pop a{font-size:.8rem}
 @media (max-width:860px){.pv-map{height:320px}}
 body:not(.show-places) #h-places,body:not(.show-places) #h-places+.sec{display:none!important}
+body:not(.show-projects) #h-projects,body:not(.show-projects) #h-projects+.sec{display:none!important}
+.pj-empty{border:1px dashed var(--line);background:var(--box);padding:28px 20px;text-align:center;color:var(--muted);margin:8px 0 6px}
+.pj-empty b{display:block;color:var(--ink);font-size:1.05rem;margin-bottom:4px}
 </style></head><body>
 <header class="top"><button class="menu" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><a class="logo" href="index.html">RAMESH&nbsp;G<small>Personal wiki</small></a><a class="back" id="backMain" href="index.html"><span class="bk-full">← Back to main page</span><span class="bk-short" aria-label="Back to main page">← Main page</span></a></header>
 <div class="page">
@@ -150,7 +153,8 @@ body:not(.show-places) #h-places,body:not(.show-places) #h-places+.sec{display:n
 <li><a href="#h-career">Career</a><ol><li><a href="#h-chennai">First job in Chennai</a></li><li><a href="#h-hyd">Course in Hyderabad</a></li><li><a href="#h-sthira">Sthira IT Solutions</a></li><li><a href="#h-ps">Purpleslate</a></li></ol></li>
 <li><a href="#h-personal">Personal life</a></li>
 <li><a href="#h-journey" id="jLink">Journey</a></li>
-<li><a href="#h-places" id="pLink">Places visited</a></li></ol></nav>
+<li><a href="#h-places" id="pLink">Places visited</a></li>
+<li><a href="#h-projects" id="prLink">Projects</a></li></ol></nav>
 <main id="top">
 <h1>Ramesh G</h1>
 <div class="mtabs"><span>Article</span></div>
@@ -227,6 +231,8 @@ body:not(.show-places) #h-places,body:not(.show-places) #h-places+.sec{display:n
             <div class="pv-g"><h3 style="--c:#2563eb">Chennai beaches <small>(4)</small></h3><ul><li><a href="https://en.wikipedia.org/wiki/Marina_Beach" target="_blank" rel="noopener">Marina Beach</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Elliot&#x27;s_Beach" target="_blank" rel="noopener">Besant Nagar Beach</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Thiruvanmiyur" target="_blank" rel="noopener">Thiruvanmiyur Beach</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Kovalam,_Chennai" target="_blank" rel="noopener">Kovalam Beach</a> <span>· Chennai</span></li></ul></div>
             <div class="pv-g"><h3 style="--c:#9333ea">Parks &amp; fun <small>(4)</small></h3><ul><li><a href="https://en.wikipedia.org/wiki/DakshinaChitra" target="_blank" rel="noopener">DakshinaChitra</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Arignar_Anna_Zoological_Park" target="_blank" rel="noopener">Vandalur Zoo</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Athisayam" target="_blank" rel="noopener">Madurai Athisayam</a> <span>· Theme park</span></li><li><a href="https://en.wikipedia.org/wiki/Tropical_butterfly_conservatory,_Trichy" target="_blank" rel="noopener">Trichy Butterfly Park</a> <span>· Srirangam</span></li></ul></div>
           </div>
+          <h2 id="h-projects">Projects</h2>
+          <div class="pj-empty"><b>No projects added yet</b>Projects will be added here soon.</div>
         
 <div class="foot">© Ramesh G · <a href="index.html">Main page</a></div>
 </main></div><script>
@@ -297,6 +303,13 @@ link.addEventListener('click',show,true);
 var hd=document.getElementById('h-places');
 hd.addEventListener('click',function(){setTimeout(function(){if(map)map.invalidateSize();else if(el.offsetParent)build();},80);});
 if(location.hash==='#h-places'){show();requestAnimationFrame(function(){hd.scrollIntoView();});}
+})();
+</script>
+<script>
+(function(){var a=document.getElementById('prLink');if(!a)return;
+function show(){document.body.classList.add('show-projects');a.classList.add('on');}
+a.addEventListener('click',show,true);
+if(location.hash==='#h-projects'){show();var t=document.getElementById('h-projects');requestAnimationFrame(function(){t&&t.scrollIntoView();});}
 })();
 </script>
 </body></html>
