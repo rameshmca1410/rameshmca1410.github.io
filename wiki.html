@@ -81,7 +81,6 @@ body:not(.show-journey) #h-journey,body:not(.show-journey) #h-journey+.sec{displ
 .leaflet-container{overflow:hidden;-webkit-tap-highlight-color:transparent;font-family:var(--sans);font-size:12px;background:#dfe7ea;outline-offset:1px}
 .leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow{user-select:none;-webkit-user-drag:none}
 .leaflet-container img.leaflet-tile,.leaflet-container .leaflet-overlay-pane svg,.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-tile-pane img{max-width:none!important;max-height:none!important;width:auto;padding:0}
-.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}
 .leaflet-container.leaflet-touch-zoom{touch-action:pan-x pan-y}
 .leaflet-container.leaflet-touch-drag{touch-action:none;touch-action:pinch-zoom}
 .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{touch-action:none}
@@ -279,8 +278,7 @@ function build(){
   if(map){map.invalidateSize();return;}
   if(!window.L){el.classList.add('none');el.textContent='Map could not load';map={invalidateSize:function(){}};return;}
   map=L.map(el,{scrollWheelZoom:false,zoomSnap:.25});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',
-    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).addTo(map);
   var all=[];
   cats.forEach(function(c){var name=c[0],color=c[1],list=c[2],grp=L.layerGroup().addTo(map);
     list.forEach(function(p){all.push([p[2],p[3]]);
