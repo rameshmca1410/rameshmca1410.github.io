@@ -478,11 +478,11 @@ svg.leaflet-zoom-animated{will-change:transform}
 @media (max-width:1100px){.hero{grid-template-columns:1fr!important}.facts{grid-column:auto}}
 .tabs a{display:inline-flex;align-items:center;gap:6px}
 .tabs a svg{width:15px;height:15px}
-.mode-all #watch,.mode-all #photos{display:none}
-.mode-images main>*:not(#photos),.mode-videos main>*:not(#watch){display:none}
-.mode-images #photos,.mode-videos #watch{border-top:0;padding-top:22px}
+.mode-all #watch,.mode-all #photos,.mode-all #places{display:none}
+.mode-images main>*:not(#photos),.mode-videos main>*:not(#watch),.mode-places main>*:not(#places){display:none}
+.mode-images #photos,.mode-videos #watch,.mode-places #places{border-top:0;padding-top:22px}
 .mode-videos .watch video{max-width:960px}
-.mode-images footer,.mode-videos footer{margin-top:24px}
+.mode-images footer,.mode-videos footer,.mode-places footer{margin-top:24px}
 .facts{grid-template-columns:1fr!important;grid-template-rows:1fr 1fr!important}
 @media (max-width:1100px){.facts{grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important}}
 .jacc{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
@@ -625,32 +625,6 @@ svg.leaflet-zoom-animated{will-change:transform}
 .eyebrow::before{content:"";width:13px;height:13px;flex:none;background:var(--gold);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 22 12 12 22 2 12Z' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M12 7 17 12 12 17 7 12Z' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='12' r='1.8'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 22 12 12 22 2 12Z' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M12 7 17 12 12 17 7 12Z' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='12' r='1.8'/%3E%3C/svg%3E") center/contain no-repeat}
 .hello{color:var(--gold)}
 
-/* ===== My journey timeline ===== */
-.tl{list-style:none;margin:8px 0 0;padding:0;position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
-.tl::before{content:"";position:absolute;top:6px;bottom:6px;left:50%;width:2px;margin-left:-1px;background:linear-gradient(var(--accent),var(--gold));opacity:.35;border-radius:2px}
-.tl li{position:relative;padding:4px 0 26px}
-.tl li:nth-child(odd){grid-column:1;text-align:right;padding-right:6px}
-.tl li:nth-child(even){grid-column:2;padding-left:6px;margin-top:56px}
-.tl li::after{content:"";position:absolute;top:10px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);box-sizing:border-box}
-.tl li:nth-child(odd)::after{right:-31px}
-.tl li:nth-child(even)::after{left:-31px}
-.tl li.big::after{background:var(--gold);border-color:var(--gold);width:16px;height:16px;top:9px}
-.tl li:nth-child(odd).big::after{right:-32px}.tl li:nth-child(even).big::after{left:-32px}
-.tl .yr{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);padding:2px 9px;border-radius:999px;margin-bottom:6px}
-.tl li.big .yr{color:#5b3b00;background:color-mix(in srgb,var(--gold) 28%,transparent)}
-.tl h3{font-size:1.02rem;font-weight:700;margin:0 0 3px;letter-spacing:-.01em}
-.tl p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
-.tl-ta{font-family:var(--tamil);color:var(--muted);font-size:.95rem;margin:4px 0 0}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tl li.big .yr{color:var(--gold)}}
-:root[data-theme="dark"] .tl li.big .yr{color:var(--gold)}
-@media (max-width:760px){
- .tl{grid-template-columns:1fr;padding-left:26px}
- .tl::before{left:7px;margin-left:0}
- .tl li:nth-child(odd),.tl li:nth-child(even){grid-column:1;text-align:left;padding:2px 0 20px;margin-top:0}
- .tl li:nth-child(odd)::after,.tl li:nth-child(even)::after{left:-26px;right:auto}
- .tl li:nth-child(odd).big::after,.tl li:nth-child(even).big::after{left:-27px;right:auto}
-}
-
 /* ===== Travel map ===== */
 .tmap-wrap{position:relative;margin-bottom:22px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--panel)}
 .tmap{height:440px;position:relative;z-index:0}
@@ -682,19 +656,16 @@ svg.leaflet-zoom-animated{will-change:transform}
   </button>
 </header>
 
-<div class="wrap kolam" aria-hidden="true"></div>
-
 <nav class="tabsbar" aria-label="Sections">
   <div class="wrap tabs" id="tabs">
     <a href="#overview" aria-current="true">Overview</a>
     <a href="#about">About</a>
-    <a href="#journey">Journey</a>
     <a href="#images" data-mode="images">Images</a>
     <a href="#videos" data-mode="videos">Videos</a>
     <a href="#favourites">Favourites</a>
-    <a href="#places">Places</a>
     <a href="#hometown">Hometown</a>
     <a href="wiki.html">History</a>
+    <a href="#places-visited" data-mode="places">Places visited</a>
   </div>
 </nav>
 
@@ -762,24 +733,6 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
   </section>
 
-  <section id="journey">
-    <div class="wrap">
-      <div class="sec-h"><div><p class="eyebrow">My journey</p><h2>From Perumanallur to Chennai</h2><p class="tl-ta" lang="ta">ஊரிலிருந்து சென்னை வரை</p></div></div>
-      <ol class="tl">
-        <li><span class="yr">Early school</span><h3>Perumanallur government school</h3><p>First steps in school, right in his home village.</p></li>
-        <li><span class="yr">2003 – 2007</span><h3>Sakthi Vigneswara Kalvi Nilayam</h3><p>6th to 10th standard, back when the school was at Kanakkampalayam Pirivu.</p></li>
-        <li><span class="yr">2008 – 2009</span><h3>Hostel days at Shree Gurukulam</h3><p>11th and 12th, hostel life, and throwball at state and divisional level.</p></li>
-        <li><span class="yr">2009 – 2012</span><h3>B.Sc. Mathematics with CA, Erode</h3><p>College years at Nandha Arts and Science College.</p></li>
-        <li><span class="yr">2012 – 2015</span><h3>MCA in Coimbatore</h3><p>Master's at Kalaignar Karunanidhi Institute of Technology.</p></li>
-        <li class="big"><span class="yr">2015</span><h3>Moving to Chennai</h3><p>First job at Tech Mahindra, Ambattur. The Chennai floods changed plans soon after.</p></li>
-        <li><span class="yr">2017</span><h3>Hyderabad, then Bangalore</h3><p>A course in Secunderabad, then a new start at Sthira IT Solutions, including months at a client site in Puducherry.</p></li>
-        <li class="big"><span class="yr">2021</span><h3>Back to Chennai</h3><p>Joined Purpleslate as a Technology Engineer, working from Thiruvanmiyur.</p></li>
-        <li><span class="yr">2025</span><h3>A new home in Perumanallur</h3><p>The family moved into a new house back home.</p></li>
-        <li class="big"><span class="yr">18 May 2026</span><h3>Married Selvanayagam</h3><p>The start of a new chapter together.</p></li>
-      </ol>
-    </div>
-  </section>
-
   <section id="watch">
     <div class="wrap watch">
       <div class="vgrid">
@@ -802,20 +755,6 @@ svg.leaflet-zoom-animated{will-change:transform}
     </div>
   </section>
 
-
-  <section id="places">
-    <div class="wrap">
-      <div class="sec-h"><div><p class="eyebrow">Travel</p><h2>Places he has visited</h2><p class="ptip">Tap any place to open its page</p></div><p class="ptotal"><b>21</b> places and counting</p></div>
-      <div class="tmap-wrap"><div class="tmap" id="tmap" role="region" aria-label="Map of places he has visited"></div><div class="tlegend" id="tlegend"></div></div>
-      <div class="places">
-        <div class="pgroup"><h3>Temples &amp; heritage<small>7</small></h3><ul><li><a class="plc" data-wiki="Brihadeeswarar_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Brihadeeswarar_Temple" target="_blank" rel="noopener"><span class="fimg"></span><div>Thanjavur Big Temple<span>Brihadeeswarar Temple</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Ranganathaswamy_Temple,_Srirangam" data-fill="1" href="https://en.wikipedia.org/wiki/Ranganathaswamy_Temple,_Srirangam" target="_blank" rel="noopener"><span class="fimg"></span><div>Srirangam<span>Trichy</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Meenakshi_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Madurai" target="_blank" rel="noopener"><span class="fimg"></span><div>Madurai</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Ramanathaswamy_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Rameswaram" target="_blank" rel="noopener"><span class="fimg"></span><div>Rameswaram</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Kanyakumari" data-fill="1" href="https://en.wikipedia.org/wiki/Kanyakumari" target="_blank" rel="noopener"><span class="fimg"></span><div>Kanyakumari</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Mysore_Palace" data-fill="1" href="https://en.wikipedia.org/wiki/Mysore_Palace" target="_blank" rel="noopener"><span class="fimg"></span><div>Mysore Palace<span>Mysuru, Karnataka</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Adiyogi_Shiva_bust" data-fill="1" href="https://en.wikipedia.org/wiki/Adiyogi_Shiva_bust" target="_blank" rel="noopener"><span class="fimg"></span><div>Isha Yoga Center<span>Adiyogi, Coimbatore</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
-        <div class="pgroup"><h3>Hill stations<small>2</small></h3><ul><li><a class="plc" data-wiki="Ooty" data-fill="1" href="https://en.wikipedia.org/wiki/Ooty" target="_blank" rel="noopener"><span class="fimg"></span><div>Ooty<span>The Nilgiris</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Munnar" data-fill="1" href="https://en.wikipedia.org/wiki/Munnar" target="_blank" rel="noopener"><span class="fimg"></span><div>Munnar<span>Kerala</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
-        <div class="pgroup"><h3>Dams &amp; rivers<small>4</small></h3><ul><li><a class="plc" data-wiki="Aliyar_Reservoir" data-fill="1" href="https://en.wikipedia.org/wiki/Aliyar_Reservoir" target="_blank" rel="noopener"><span class="fimg"></span><div>Aliyar Dam<span>Pollachi</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Kodiveri_dam" data-fill="1" href="https://en.wikipedia.org/wiki/Kodiveri_dam" target="_blank" rel="noopener"><span class="fimg"></span><div>Kodiveri Dam<span>Gobichettipalayam</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Vaigai_Dam" data-fill="1" href="https://en.wikipedia.org/wiki/Vaigai_Dam" target="_blank" rel="noopener"><span class="fimg"></span><div>Vaigai Dam<span>Theni</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Kallanai_Dam" data-fill="1" href="https://en.wikipedia.org/wiki/Kallanai_Dam" target="_blank" rel="noopener"><span class="fimg"></span><div>Kallanai<span>Grand Anicut, Thanjavur</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
-        <div class="pgroup"><h3>Chennai beaches<small>4</small></h3><ul><li><a class="plc" data-wiki="Marina_Beach" data-fill="1" href="https://en.wikipedia.org/wiki/Marina_Beach" target="_blank" rel="noopener"><span class="fimg"></span><div>Marina Beach<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Thiruvanmiyur" data-fill="1" href="https://en.wikipedia.org/wiki/Thiruvanmiyur" target="_blank" rel="noopener"><span class="fimg"></span><div>Thiruvanmiyur Beach<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Elliot's_Beach" data-fill="1" href="https://en.wikipedia.org/wiki/Elliot%27s_Beach" target="_blank" rel="noopener"><span class="fimg"></span><div>Besant Nagar Beach<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Covelong" data-fill="1" href="https://en.wikipedia.org/wiki/Kovalam,_Chennai" target="_blank" rel="noopener"><span class="fimg"></span><div>Kovalam Beach<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
-        <div class="pgroup"><h3>Parks &amp; fun<small>4</small></h3><ul><li><a class="plc" data-wiki="DakshinaChitra" data-fill="1" href="https://www.dakshinachitra.net/" target="_blank" rel="noopener"><span class="fimg"></span><div>DakshinaChitra<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Arignar_Anna_Zoological_Park" data-fill="1" href="https://www.aazp.in/" target="_blank" rel="noopener"><span class="fimg"></span><div>Vandalur Zoo<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Athisayam" data-fill="1" href="https://en.wikipedia.org/wiki/Athisayam" target="_blank" rel="noopener"><span class="fimg"></span><div>Madurai Athisayam<span>Theme park</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Tropical_butterfly_conservatory,_Trichy" data-fill="1" href="https://en.wikipedia.org/wiki/Tropical_butterfly_conservatory,_Trichy" target="_blank" rel="noopener"><span class="fimg"></span><div>Trichy Butterfly Park<span>Srirangam</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
-      </div>
-    </div>
-  </section>
 
   <section id="hometown">
     <div class="wrap">
@@ -846,6 +785,19 @@ svg.leaflet-zoom-animated{will-change:transform}
     <div class="wrap">
       <div class="sec-h"><div><p class="eyebrow">Photos</p><h2>Moments &amp; memories</h2></div><div class="chips" id="chips" role="group" aria-label="Choose an album"></div></div>
       <div class="wall" id="wall"></div>
+    </div>
+  </section>
+  <section id="places">
+    <div class="wrap">
+      <div class="sec-h"><div><p class="eyebrow">Travel</p><h2>Places he has visited</h2><p class="ptip">Tap any place to open its page</p></div><p class="ptotal"><b>21</b> places and counting</p></div>
+      <div class="tmap-wrap"><div class="tmap" id="tmap" role="region" aria-label="Map of places he has visited"></div><div class="tlegend" id="tlegend"></div></div>
+      <div class="places">
+        <div class="pgroup"><h3>Temples &amp; heritage<small>7</small></h3><ul><li><a class="plc" data-wiki="Brihadeeswarar_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Brihadeeswarar_Temple" target="_blank" rel="noopener"><span class="fimg"></span><div>Thanjavur Big Temple<span>Brihadeeswarar Temple</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Ranganathaswamy_Temple,_Srirangam" data-fill="1" href="https://en.wikipedia.org/wiki/Ranganathaswamy_Temple,_Srirangam" target="_blank" rel="noopener"><span class="fimg"></span><div>Srirangam<span>Trichy</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Meenakshi_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Madurai" target="_blank" rel="noopener"><span class="fimg"></span><div>Madurai</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Ramanathaswamy_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Rameswaram" target="_blank" rel="noopener"><span class="fimg"></span><div>Rameswaram</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Kanyakumari" data-fill="1" href="https://en.wikipedia.org/wiki/Kanyakumari" target="_blank" rel="noopener"><span class="fimg"></span><div>Kanyakumari</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Mysore_Palace" data-fill="1" href="https://en.wikipedia.org/wiki/Mysore_Palace" target="_blank" rel="noopener"><span class="fimg"></span><div>Mysore Palace<span>Mysuru, Karnataka</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Adiyogi_Shiva_bust" data-fill="1" href="https://en.wikipedia.org/wiki/Adiyogi_Shiva_bust" target="_blank" rel="noopener"><span class="fimg"></span><div>Isha Yoga Center<span>Adiyogi, Coimbatore</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
+        <div class="pgroup"><h3>Hill stations<small>2</small></h3><ul><li><a class="plc" data-wiki="Ooty" data-fill="1" href="https://en.wikipedia.org/wiki/Ooty" target="_blank" rel="noopener"><span class="fimg"></span><div>Ooty<span>The Nilgiris</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Munnar" data-fill="1" href="https://en.wikipedia.org/wiki/Munnar" target="_blank" rel="noopener"><span class="fimg"></span><div>Munnar<span>Kerala</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
+        <div class="pgroup"><h3>Dams &amp; rivers<small>4</small></h3><ul><li><a class="plc" data-wiki="Aliyar_Reservoir" data-fill="1" href="https://en.wikipedia.org/wiki/Aliyar_Reservoir" target="_blank" rel="noopener"><span class="fimg"></span><div>Aliyar Dam<span>Pollachi</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Kodiveri_dam" data-fill="1" href="https://en.wikipedia.org/wiki/Kodiveri_dam" target="_blank" rel="noopener"><span class="fimg"></span><div>Kodiveri Dam<span>Gobichettipalayam</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Vaigai_Dam" data-fill="1" href="https://en.wikipedia.org/wiki/Vaigai_Dam" target="_blank" rel="noopener"><span class="fimg"></span><div>Vaigai Dam<span>Theni</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Kallanai_Dam" data-fill="1" href="https://en.wikipedia.org/wiki/Kallanai_Dam" target="_blank" rel="noopener"><span class="fimg"></span><div>Kallanai<span>Grand Anicut, Thanjavur</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
+        <div class="pgroup"><h3>Chennai beaches<small>4</small></h3><ul><li><a class="plc" data-wiki="Marina_Beach" data-fill="1" href="https://en.wikipedia.org/wiki/Marina_Beach" target="_blank" rel="noopener"><span class="fimg"></span><div>Marina Beach<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Thiruvanmiyur" data-fill="1" href="https://en.wikipedia.org/wiki/Thiruvanmiyur" target="_blank" rel="noopener"><span class="fimg"></span><div>Thiruvanmiyur Beach<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Elliot's_Beach" data-fill="1" href="https://en.wikipedia.org/wiki/Elliot%27s_Beach" target="_blank" rel="noopener"><span class="fimg"></span><div>Besant Nagar Beach<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Covelong" data-fill="1" href="https://en.wikipedia.org/wiki/Kovalam,_Chennai" target="_blank" rel="noopener"><span class="fimg"></span><div>Kovalam Beach<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
+        <div class="pgroup"><h3>Parks &amp; fun<small>4</small></h3><ul><li><a class="plc" data-wiki="DakshinaChitra" data-fill="1" href="https://www.dakshinachitra.net/" target="_blank" rel="noopener"><span class="fimg"></span><div>DakshinaChitra<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Arignar_Anna_Zoological_Park" data-fill="1" href="https://www.aazp.in/" target="_blank" rel="noopener"><span class="fimg"></span><div>Vandalur Zoo<span>Chennai</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Athisayam" data-fill="1" href="https://en.wikipedia.org/wiki/Athisayam" target="_blank" rel="noopener"><span class="fimg"></span><div>Madurai Athisayam<span>Theme park</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Tropical_butterfly_conservatory,_Trichy" data-fill="1" href="https://en.wikipedia.org/wiki/Tropical_butterfly_conservatory,_Trichy" target="_blank" rel="noopener"><span class="fimg"></span><div>Trichy Butterfly Park<span>Srirangam</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
+      </div>
     </div>
   </section>
 </main>
@@ -1109,7 +1061,7 @@ addEventListener('scroll',()=>{if(!hc.hidden)hideHC();},{passive:true});
 const links=[...document.querySelectorAll('#tabs a')];
 let mode='all';
 function setMode(m,scroll){
-  mode=m;document.body.classList.remove('mode-all','mode-images','mode-videos');document.body.classList.add('mode-'+m);
+  mode=m;document.body.classList.remove('mode-all','mode-images','mode-videos','mode-places');document.body.classList.add('mode-'+m);
   if(m!=='videos'){const v=document.querySelector('#watch video');if(v&&!v.paused)v.pause();}
   if(scroll!==false) window.scrollTo({top:0,behavior:'auto'});
   onScroll();
@@ -1117,7 +1069,7 @@ function setMode(m,scroll){
 links.forEach(a=>a.addEventListener('click',e=>{
   if(!(a.getAttribute('href')||'').startsWith('#'))return;
   const m=a.dataset.mode;
-  if(m){e.preventDefault();setMode(m);try{history.replaceState(null,'','#'+m);}catch(_){}}
+  if(m){e.preventDefault();setMode(m);try{history.replaceState(null,'',a.getAttribute('href'));}catch(_){}}
   else if(mode!=='all'){e.preventDefault();setMode('all',false);const t=document.querySelector(a.getAttribute('href'));
     requestAnimationFrame(()=>t&&t.scrollIntoView());try{history.replaceState(null,'',a.getAttribute('href'));}catch(_){}}
 }));
@@ -1128,7 +1080,7 @@ function onScroll(){
   links.forEach(a=>a.setAttribute('aria-current',a===cur));
 }
 addEventListener('scroll',onScroll,{passive:true});
-const h=(location.hash||'').slice(1);setMode(h==='images'||h==='videos'?h:'all',false);
+const h=(location.hash||'').slice(1);setMode(h==='images'||h==='videos'?h:(h==='places-visited'||h==='places')?'places':'all',false);
 </script>
 <script>document.querySelectorAll('.soc[data-pending]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));</script>
 <script>

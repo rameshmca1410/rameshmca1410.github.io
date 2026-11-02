@@ -58,6 +58,23 @@ p{margin:0 0 14px}
   .sec{display:none;padding-top:10px}
   .sec.open{display:block}
 }
+
+/* Journey timeline */
+.tl{list-style:none;margin:6px 0 0;padding:0 0 0 26px;position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(#1f6f54,#d98e10);opacity:.45;border-radius:2px}
+.tl li{position:relative;padding:0 0 18px}
+.tl li::after{content:"";position:absolute;left:-26px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid #1f6f54;box-sizing:border-box}
+.tl li.big::after{background:#d98e10;border-color:#d98e10}
+.tl .yr{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.04em;color:#1f6f54;background:#dcefe6;padding:1px 9px;border-radius:999px}
+.tl li.big .yr{color:#7a4a00;background:#f6e3c0}
+.tl h3{margin:4px 0 2px;font-size:1.02rem}
+.tl p{margin:0;color:var(--muted);font-size:.95rem}
+.tl-ta{color:var(--muted);margin:-4px 0 14px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tl .yr{background:#183329;color:#6fcfa5}:root:not([data-theme="light"]) .tl li.big .yr{background:#3a2a0e;color:#f0b13e}}
+:root[data-theme="dark"] .tl .yr{background:#183329;color:#6fcfa5}:root[data-theme="dark"] .tl li.big .yr{background:#3a2a0e;color:#f0b13e}
+/* Journey shows only after it is chosen in the contents */
+body:not(.show-journey) #h-journey,body:not(.show-journey) #h-journey+.sec{display:none!important}
+.toc a.on{font-weight:700}
 </style></head><body>
 <header class="top"><button class="menu" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><a class="logo" href="index.html">RAMESH&nbsp;G<small>Personal wiki</small></a><a class="back" id="backMain" href="index.html"><span class="bk-full">← Back to main page</span><span class="bk-short" aria-label="Back to main page">← Main page</span></a></header>
 <div class="page">
@@ -67,7 +84,8 @@ p{margin:0 0 14px}
 <li><a href="#h-early">Early life</a></li>
 <li><a href="#h-edu">Education</a><ol><li><a href="#h-school">Schooling</a></li><li><a href="#h-hss">Higher secondary</a></li><li><a href="#h-college">College</a></li></ol></li>
 <li><a href="#h-career">Career</a><ol><li><a href="#h-chennai">First job in Chennai</a></li><li><a href="#h-hyd">Course in Hyderabad</a></li><li><a href="#h-sthira">Sthira IT Solutions</a></li><li><a href="#h-ps">Purpleslate</a></li></ol></li>
-<li><a href="#h-personal">Personal life</a></li></ol></nav>
+<li><a href="#h-personal">Personal life</a></li>
+<li><a href="#h-journey" id="jLink">Journey</a></li></ol></nav>
 <main id="top">
 <h1>Ramesh G</h1>
 <div class="mtabs"><span>Article</span></div>
@@ -119,6 +137,20 @@ p{margin:0 0 14px}
 
           <h2 id="h-personal">Personal life</h2>
           <p>Ramesh married Selvanayagam on 18 May 2026. She is from Thiruvadanai, near Sivaganga, and works as a college professor.</p>
+          <h2 id="h-journey">Journey</h2>
+          <p class="tl-ta" lang="ta">ஊரிலிருந்து சென்னை வரை · From Perumanallur to Chennai</p>
+          <ol class="tl">
+            <li><span class="yr">Early school</span><h3>Perumanallur government school</h3><p>First steps in school, right in his home village.</p></li>
+            <li><span class="yr">2003 – 2007</span><h3>Sakthi Vigneswara Kalvi Nilayam</h3><p>6th to 10th standard, back when the school was at Kanakkampalayam Pirivu.</p></li>
+            <li><span class="yr">2007 – 2009</span><h3>Hostel days at Shree Gurukulam</h3><p>11th and 12th, hostel life, and throwball at state and divisional level.</p></li>
+            <li><span class="yr">2009 – 2012</span><h3>B.Sc. Mathematics with CA, Erode</h3><p>College years at Nandha Arts and Science College.</p></li>
+            <li><span class="yr">2012 – 2015</span><h3>MCA in Coimbatore</h3><p>Master's at Kalaignar Karunanidhi Institute of Technology.</p></li>
+            <li class="big"><span class="yr">2015</span><h3>Moving to Chennai</h3><p>First job at Tech Mahindra, Ambattur. The Chennai floods changed plans soon after.</p></li>
+            <li><span class="yr">2017</span><h3>Hyderabad, then Bangalore</h3><p>A course in Secunderabad, then a new start at Sthira IT Solutions, including months at a client site in Puducherry.</p></li>
+            <li class="big"><span class="yr">2021</span><h3>Back to Chennai</h3><p>Joined Purpleslate as a Technology Engineer, working from Thiruvanmiyur.</p></li>
+            <li><span class="yr">2025</span><h3>A new home in Perumanallur</h3><p>The family moved into a new house back home.</p></li>
+            <li class="big"><span class="yr">18 May 2026</span><h3>Married Selvanayagam</h3><p>The start of a new chapter together.</p></li>
+          </ol>
         
 <div class="foot">© Ramesh G · <a href="index.html">Main page</a></div>
 </main></div><script>
@@ -153,6 +185,13 @@ btn.addEventListener('click',function(){drawer(!toc.classList.contains('open'));
 scrim.addEventListener('click',function(){drawer(false);});
 toc.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){openFor(a.getAttribute('href').slice(1));drawer(false);});});
 if(location.hash)openFor(location.hash.slice(1));
+})();
+</script>
+<script>
+(function(){var a=document.getElementById('jLink');if(!a)return;
+function show(){document.body.classList.add('show-journey');a.classList.add('on');}
+a.addEventListener('click',show,true);
+if(location.hash==='#h-journey'){show();var t=document.getElementById('h-journey');requestAnimationFrame(function(){t&&t.scrollIntoView();});}
 })();
 </script>
 </body></html>
