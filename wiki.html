@@ -75,6 +75,71 @@ p{margin:0 0 14px}
 /* Journey shows only after it is chosen in the contents */
 body:not(.show-journey) #h-journey,body:not(.show-journey) #h-journey+.sec{display:none!important}
 .toc a.on{font-weight:700}
+
+/* Leaflet essentials (v1.9.4 core rules) */
+.leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0}
+.leaflet-container{overflow:hidden;-webkit-tap-highlight-color:transparent;font-family:var(--sans);font-size:12px;background:#dfe7ea;outline-offset:1px}
+.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow{user-select:none;-webkit-user-drag:none}
+.leaflet-container img.leaflet-tile,.leaflet-container .leaflet-overlay-pane svg,.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-tile-pane img{max-width:none!important;max-height:none!important;width:auto;padding:0}
+.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}
+.leaflet-container.leaflet-touch-zoom{touch-action:pan-x pan-y}
+.leaflet-container.leaflet-touch-drag{touch-action:none;touch-action:pinch-zoom}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{touch-action:none}
+.leaflet-tile{filter:inherit;visibility:hidden}
+.leaflet-tile-loaded{visibility:inherit}
+.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}
+.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}
+.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto;float:left;clear:both}
+.leaflet-top,.leaflet-bottom{position:absolute;z-index:1000;pointer-events:none}
+.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}
+.leaflet-right .leaflet-control{float:right}
+.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}
+.leaflet-fade-anim .leaflet-popup{opacity:0;transition:opacity .2s linear}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}
+.leaflet-zoom-animated{transform-origin:0 0}
+svg.leaflet-zoom-animated{will-change:transform}
+.leaflet-zoom-anim .leaflet-zoom-animated{transition:transform .25s cubic-bezier(0,0,.25,1)}
+.leaflet-zoom-anim .leaflet-tile,.leaflet-pan-anim .leaflet-tile{transition:none}
+.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}
+.leaflet-interactive{cursor:pointer}
+.leaflet-grab{cursor:grab}.leaflet-dragging .leaflet-grab{cursor:move}
+.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-image-layer,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}
+.leaflet-marker-icon.leaflet-interactive,.leaflet-image-layer.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive{pointer-events:visiblePainted;pointer-events:auto}
+.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.25);border-radius:8px;overflow:hidden}
+.leaflet-bar a{background:#fff;border-bottom:1px solid #ddd;width:30px;height:30px;line-height:30px;display:block;text-align:center;text-decoration:none;color:#222;font:bold 18px/30px var(--sans)}
+.leaflet-bar a:last-child{border-bottom:none}
+.leaflet-bar a:hover{background:#f4f4f4}
+.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}
+.leaflet-control-attribution{background:rgba(255,255,255,.85);margin:0!important;padding:2px 6px;color:#333;font-size:10px;line-height:1.4}
+.leaflet-control-attribution a{color:#0c63a8;text-decoration:none}
+.leaflet-tooltip{position:absolute;padding:0;background:#fff;border:1px solid #d9dfe6;border-radius:10px;color:#1b1f24;white-space:nowrap;user-select:none;pointer-events:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.35);overflow:hidden}
+.leaflet-tooltip-top:before,.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{display:none}
+.pv-map .leaflet-tooltip{padding:4px 8px;font-size:.8rem}
+.leaflet-popup-content-wrapper{background:#fff;color:#202122;border-radius:8px;box-shadow:0 3px 14px rgba(0,0,0,.25);padding:1px;text-align:left}
+.leaflet-popup-content{margin:10px 14px;line-height:1.4}
+.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}
+.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}
+.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;transform:rotate(45deg);background:#fff;box-shadow:0 3px 14px rgba(0,0,0,.25)}
+.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:transparent}
+/* Places visited */
+.pv-map{height:420px;border:1px solid var(--line);background:var(--box);margin:8px 0 6px;position:relative;z-index:0}
+.pv-map.none{display:grid;place-items:center;color:var(--muted)}
+.pv-legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.85rem;color:var(--muted);margin:0 0 16px}
+.pv-legend button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:2px 4px;border-radius:4px}
+.pv-legend button:focus-visible{outline:2px solid var(--link)}
+.pv-legend button[aria-pressed="false"]{opacity:.4;text-decoration:line-through}
+.pv-legend i{width:11px;height:11px;border-radius:50%;display:inline-block;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
+.pv-legend .home{display:inline-flex;align-items:center;gap:6px;padding:2px 4px}
+.pv-legend .home i{border-radius:2px;transform:rotate(45deg)}
+.pv-list{columns:2 260px;column-gap:28px}
+.pv-g{break-inside:avoid;margin-bottom:12px}
+.pv-g h3{margin:6px 0 4px;display:flex;align-items:center;gap:8px}
+.pv-g h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
+.pv-g h3 small{color:var(--muted);font-weight:400}
+.pv-g ul{margin:0;padding-left:20px}.pv-g li{margin:2px 0}.pv-g li span{color:var(--muted);font-size:.9rem}
+.pv-pop b{display:block}.pv-pop span{display:block;font-size:.8rem;color:#54595d}.pv-pop a{font-size:.8rem}
+@media (max-width:860px){.pv-map{height:320px}}
+body:not(.show-places) #h-places,body:not(.show-places) #h-places+.sec{display:none!important}
 </style></head><body>
 <header class="top"><button class="menu" id="menuBtn" aria-label="Open contents" aria-expanded="false"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><a class="logo" href="index.html">RAMESH&nbsp;G<small>Personal wiki</small></a><a class="back" id="backMain" href="index.html"><span class="bk-full">← Back to main page</span><span class="bk-short" aria-label="Back to main page">← Main page</span></a></header>
 <div class="page">
@@ -85,7 +150,8 @@ body:not(.show-journey) #h-journey,body:not(.show-journey) #h-journey+.sec{displ
 <li><a href="#h-edu">Education</a><ol><li><a href="#h-school">Schooling</a></li><li><a href="#h-hss">Higher secondary</a></li><li><a href="#h-college">College</a></li></ol></li>
 <li><a href="#h-career">Career</a><ol><li><a href="#h-chennai">First job in Chennai</a></li><li><a href="#h-hyd">Course in Hyderabad</a></li><li><a href="#h-sthira">Sthira IT Solutions</a></li><li><a href="#h-ps">Purpleslate</a></li></ol></li>
 <li><a href="#h-personal">Personal life</a></li>
-<li><a href="#h-journey" id="jLink">Journey</a></li></ol></nav>
+<li><a href="#h-journey" id="jLink">Journey</a></li>
+<li><a href="#h-places" id="pLink">Places visited</a></li></ol></nav>
 <main id="top">
 <h1>Ramesh G</h1>
 <div class="mtabs"><span>Article</span></div>
@@ -151,6 +217,17 @@ body:not(.show-journey) #h-journey,body:not(.show-journey) #h-journey+.sec{displ
             <li><span class="yr">2025</span><h3>A new home in Perumanallur</h3><p>The family moved into a new house back home.</p></li>
             <li class="big"><span class="yr">18 May 2026</span><h3>Married Selvanayagam</h3><p>The start of a new chapter together.</p></li>
           </ol>
+          <h2 id="h-places">Places visited</h2>
+          <p>Ramesh loves travelling, especially on his bike. These are the 21 places he has visited so far. Tap a pin or a name to learn more.</p>
+          <div class="pv-map" id="pvMap" role="region" aria-label="Map of places he has visited"></div>
+          <div class="pv-legend" id="pvLegend"></div>
+          <div class="pv-list">
+            <div class="pv-g"><h3 style="--c:#c2410c">Temples &amp; heritage <small>(7)</small></h3><ul><li><a href="https://en.wikipedia.org/wiki/Brihadeeswarar_Temple" target="_blank" rel="noopener">Thanjavur Big Temple</a> <span>· Brihadeeswarar Temple</span></li><li><a href="https://en.wikipedia.org/wiki/Ranganathaswamy_Temple,_Srirangam" target="_blank" rel="noopener">Srirangam</a> <span>· Trichy</span></li><li><a href="https://en.wikipedia.org/wiki/Madurai" target="_blank" rel="noopener">Madurai</a> <span>· Meenakshi Amman Temple</span></li><li><a href="https://en.wikipedia.org/wiki/Rameswaram" target="_blank" rel="noopener">Rameswaram</a> <span>· Ramanathaswamy Temple</span></li><li><a href="https://en.wikipedia.org/wiki/Kanyakumari" target="_blank" rel="noopener">Kanyakumari</a> <span>· Southern tip of India</span></li><li><a href="https://en.wikipedia.org/wiki/Mysore_Palace" target="_blank" rel="noopener">Mysore Palace</a> <span>· Mysuru, Karnataka</span></li><li><a href="https://en.wikipedia.org/wiki/Adiyogi_Shiva_bust" target="_blank" rel="noopener">Isha Yoga Center</a> <span>· Adiyogi, Coimbatore</span></li></ul></div>
+            <div class="pv-g"><h3 style="--c:#15803d">Hill stations <small>(2)</small></h3><ul><li><a href="https://en.wikipedia.org/wiki/Ooty" target="_blank" rel="noopener">Ooty</a> <span>· The Nilgiris</span></li><li><a href="https://en.wikipedia.org/wiki/Munnar" target="_blank" rel="noopener">Munnar</a> <span>· Kerala</span></li></ul></div>
+            <div class="pv-g"><h3 style="--c:#0e7490">Dams &amp; rivers <small>(4)</small></h3><ul><li><a href="https://en.wikipedia.org/wiki/Aliyar_Reservoir" target="_blank" rel="noopener">Aliyar Dam</a> <span>· Pollachi</span></li><li><a href="https://en.wikipedia.org/wiki/Kodiveri_dam" target="_blank" rel="noopener">Kodiveri Dam</a> <span>· Gobichettipalayam</span></li><li><a href="https://en.wikipedia.org/wiki/Vaigai_Dam" target="_blank" rel="noopener">Vaigai Dam</a> <span>· Theni</span></li><li><a href="https://en.wikipedia.org/wiki/Kallanai_Dam" target="_blank" rel="noopener">Kallanai</a> <span>· Grand Anicut, Thanjavur</span></li></ul></div>
+            <div class="pv-g"><h3 style="--c:#2563eb">Chennai beaches <small>(4)</small></h3><ul><li><a href="https://en.wikipedia.org/wiki/Marina_Beach" target="_blank" rel="noopener">Marina Beach</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Elliot&#x27;s_Beach" target="_blank" rel="noopener">Besant Nagar Beach</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Thiruvanmiyur" target="_blank" rel="noopener">Thiruvanmiyur Beach</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Kovalam,_Chennai" target="_blank" rel="noopener">Kovalam Beach</a> <span>· Chennai</span></li></ul></div>
+            <div class="pv-g"><h3 style="--c:#9333ea">Parks &amp; fun <small>(4)</small></h3><ul><li><a href="https://en.wikipedia.org/wiki/DakshinaChitra" target="_blank" rel="noopener">DakshinaChitra</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Arignar_Anna_Zoological_Park" target="_blank" rel="noopener">Vandalur Zoo</a> <span>· Chennai</span></li><li><a href="https://en.wikipedia.org/wiki/Athisayam" target="_blank" rel="noopener">Madurai Athisayam</a> <span>· Theme park</span></li><li><a href="https://en.wikipedia.org/wiki/Tropical_butterfly_conservatory,_Trichy" target="_blank" rel="noopener">Trichy Butterfly Park</a> <span>· Srirangam</span></li></ul></div>
+          </div>
         
 <div class="foot">© Ramesh G · <a href="index.html">Main page</a></div>
 </main></div><script>
@@ -192,6 +269,40 @@ if(location.hash)openFor(location.hash.slice(1));
 function show(){document.body.classList.add('show-journey');a.classList.add('on');}
 a.addEventListener('click',show,true);
 if(location.hash==='#h-journey'){show();var t=document.getElementById('h-journey');requestAnimationFrame(function(){t&&t.scrollIntoView();});}
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+var el=document.getElementById('pvMap'),lg=document.getElementById('pvLegend'),link=document.getElementById('pLink');if(!el)return;
+var W='https://en.wikipedia.org/wiki/';
+var cats=[["Temples & heritage", "#c2410c", [["Thanjavur Big Temple", "Brihadeeswarar Temple", 10.7828, 79.1318, "Brihadeeswarar_Temple"], ["Srirangam", "Trichy", 10.8627, 78.6895, "Ranganathaswamy_Temple,_Srirangam"], ["Madurai", "Meenakshi Amman Temple", 9.9195, 78.1193, "Madurai"], ["Rameswaram", "Ramanathaswamy Temple", 9.2881, 79.3174, "Rameswaram"], ["Kanyakumari", "Southern tip of India", 8.078, 77.5418, "Kanyakumari"], ["Mysore Palace", "Mysuru, Karnataka", 12.3052, 76.6552, "Mysore_Palace"], ["Isha Yoga Center", "Adiyogi, Coimbatore", 10.9724, 76.74, "Adiyogi_Shiva_bust"]]], ["Hill stations", "#15803d", [["Ooty", "The Nilgiris", 11.4102, 76.695, "Ooty"], ["Munnar", "Kerala", 10.0889, 77.0595, "Munnar"]]], ["Dams & rivers", "#0e7490", [["Aliyar Dam", "Pollachi", 10.4824, 76.9714, "Aliyar_Reservoir"], ["Kodiveri Dam", "Gobichettipalayam", 11.4826, 77.3017, "Kodiveri_dam"], ["Vaigai Dam", "Theni", 10.0547, 77.591, "Vaigai_Dam"], ["Kallanai", "Grand Anicut, Thanjavur", 10.8317, 78.8195, "Kallanai_Dam"]]], ["Chennai beaches", "#2563eb", [["Marina Beach", "Chennai", 13.05, 80.2824, "Marina_Beach"], ["Besant Nagar Beach", "Chennai", 12.999, 80.2717, "Elliot's_Beach"], ["Thiruvanmiyur Beach", "Chennai", 12.9826, 80.2707, "Thiruvanmiyur"], ["Kovalam Beach", "Chennai", 12.79, 80.252, "Kovalam,_Chennai"]]], ["Parks & fun", "#9333ea", [["DakshinaChitra", "Chennai", 12.8236, 80.2416, "DakshinaChitra"], ["Vandalur Zoo", "Chennai", 12.879, 80.0818, "Arignar_Anna_Zoological_Park"], ["Madurai Athisayam", "Theme park", 9.9935, 78.041, "Athisayam"], ["Trichy Butterfly Park", "Srirangam", 10.8737, 78.67, "Tropical_butterfly_conservatory,_Trichy"]]]];
+function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+var map=null;
+function build(){
+  if(map){map.invalidateSize();return;}
+  if(!window.L){el.classList.add('none');el.textContent='Map could not load';map={invalidateSize:function(){}};return;}
+  map=L.map(el,{scrollWheelZoom:false,zoomSnap:.25});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
+  var all=[];
+  cats.forEach(function(c){var name=c[0],color=c[1],list=c[2],grp=L.layerGroup().addTo(map);
+    list.forEach(function(p){all.push([p[2],p[3]]);
+      L.circleMarker([p[2],p[3]],{radius:7,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).addTo(grp)
+       .bindPopup('<div class="pv-pop"><b>'+esc(p[0])+'</b><span>'+esc(p[1])+' · '+esc(name)+'</span><a href="'+W+encodeURIComponent(p[4]).replace(/%2C/g,',')+'" target="_blank" rel="noopener">Open page →</a></div>');});
+    var b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','true');
+    b.innerHTML='<i style="background:'+color+'"></i>'+esc(name);
+    b.onclick=function(){var on=map.hasLayer(grp);on?map.removeLayer(grp):grp.addTo(map);b.setAttribute('aria-pressed',on?'false':'true');};
+    lg.appendChild(b);});
+  L.marker([11.20458,77.36031],{icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#d98e10;border:2px solid #fff;transform:rotate(45deg);box-shadow:0 1px 4px rgba(0,0,0,.35)"></div>',iconSize:[16,16],iconAnchor:[8,8]})}).addTo(map).bindTooltip('Home · Perumanallur',{direction:'top',offset:[0,-10]});
+  var h=document.createElement('span');h.className='home';h.innerHTML='<i style="background:#d98e10"></i>Home';lg.appendChild(h);
+  map.fitBounds(L.latLngBounds(all).pad(.08));
+}
+function show(){document.body.classList.add('show-places');link.classList.add('on');setTimeout(build,60);}
+link.addEventListener('click',show,true);
+var hd=document.getElementById('h-places');
+hd.addEventListener('click',function(){setTimeout(function(){if(map)map.invalidateSize();else if(el.offsetParent)build();},80);});
+if(location.hash==='#h-places'){show();requestAnimationFrame(function(){hd.scrollIntoView();});}
 })();
 </script>
 </body></html>
