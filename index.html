@@ -617,6 +617,56 @@ svg.leaflet-zoom-animated{will-change:transform}
 .vcard figcaption b{font-size:.95rem}.vcard figcaption span{font-size:.8rem;color:var(--muted)}
 @media (max-width:760px){.vcard,.vcard.tall{flex:1 1 100%;max-width:100%}.watch .vcard.tall video{max-height:80vh;width:auto;margin:0 auto}}
 
+
+/* ===== Kolam accents ===== */
+.kolam{height:18px;background:var(--gold);opacity:.45;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 24'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.6'%3E%3Cpath d='M12 4 20 12 12 20 4 12Z'/%3E%3Cpath d='M36 4 44 12 36 20 28 12Z'/%3E%3Cpath d='M20 12c2-4 6-4 8 0c-2 4-6 4-8 0Z'/%3E%3C/g%3E%3Cg fill='%23000'%3E%3Ccircle cx='12' cy='12' r='1.8'/%3E%3Ccircle cx='36' cy='12' r='1.8'/%3E%3Ccircle cx='24' cy='4' r='1.3'/%3E%3Ccircle cx='24' cy='20' r='1.3'/%3E%3C/g%3E%3C/svg%3E") repeat-x center/36px 18px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 24'%3E%3Cg fill='none' stroke='%23000' stroke-width='1.6'%3E%3Cpath d='M12 4 20 12 12 20 4 12Z'/%3E%3Cpath d='M36 4 44 12 36 20 28 12Z'/%3E%3Cpath d='M20 12c2-4 6-4 8 0c-2 4-6 4-8 0Z'/%3E%3C/g%3E%3Cg fill='%23000'%3E%3Ccircle cx='12' cy='12' r='1.8'/%3E%3Ccircle cx='36' cy='12' r='1.8'/%3E%3Ccircle cx='24' cy='4' r='1.3'/%3E%3Ccircle cx='24' cy='20' r='1.3'/%3E%3C/g%3E%3C/svg%3E") repeat-x center/36px 18px;margin:0 auto}
+.kolam.wrap{max-width:1240px}
+.eyebrow{display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:13px;height:13px;flex:none;background:var(--gold);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 22 12 12 22 2 12Z' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M12 7 17 12 12 17 7 12Z' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='12' r='1.8'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 22 12 12 22 2 12Z' fill='none' stroke='%23000' stroke-width='2'/%3E%3Cpath d='M12 7 17 12 12 17 7 12Z' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='12' r='1.8'/%3E%3C/svg%3E") center/contain no-repeat}
+.hello{color:var(--gold)}
+
+/* ===== My journey timeline ===== */
+.tl{list-style:none;margin:8px 0 0;padding:0;position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+.tl::before{content:"";position:absolute;top:6px;bottom:6px;left:50%;width:2px;margin-left:-1px;background:linear-gradient(var(--accent),var(--gold));opacity:.35;border-radius:2px}
+.tl li{position:relative;padding:4px 0 26px}
+.tl li:nth-child(odd){grid-column:1;text-align:right;padding-right:6px}
+.tl li:nth-child(even){grid-column:2;padding-left:6px;margin-top:56px}
+.tl li::after{content:"";position:absolute;top:10px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);box-sizing:border-box}
+.tl li:nth-child(odd)::after{right:-31px}
+.tl li:nth-child(even)::after{left:-31px}
+.tl li.big::after{background:var(--gold);border-color:var(--gold);width:16px;height:16px;top:9px}
+.tl li:nth-child(odd).big::after{right:-32px}.tl li:nth-child(even).big::after{left:-32px}
+.tl .yr{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);padding:2px 9px;border-radius:999px;margin-bottom:6px}
+.tl li.big .yr{color:#5b3b00;background:color-mix(in srgb,var(--gold) 28%,transparent)}
+.tl h3{font-size:1.02rem;font-weight:700;margin:0 0 3px;letter-spacing:-.01em}
+.tl p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
+.tl-ta{font-family:var(--tamil);color:var(--muted);font-size:.95rem;margin:4px 0 0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tl li.big .yr{color:var(--gold)}}
+:root[data-theme="dark"] .tl li.big .yr{color:var(--gold)}
+@media (max-width:760px){
+ .tl{grid-template-columns:1fr;padding-left:26px}
+ .tl::before{left:7px;margin-left:0}
+ .tl li:nth-child(odd),.tl li:nth-child(even){grid-column:1;text-align:left;padding:2px 0 20px;margin-top:0}
+ .tl li:nth-child(odd)::after,.tl li:nth-child(even)::after{left:-26px;right:auto}
+ .tl li:nth-child(odd).big::after,.tl li:nth-child(even).big::after{left:-27px;right:auto}
+}
+
+/* ===== Travel map ===== */
+.tmap-wrap{position:relative;margin-bottom:22px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--panel)}
+.tmap{height:440px;position:relative;z-index:0}
+.tmap.none{display:grid;place-items:center;color:var(--muted);font-size:.9rem}
+.tlegend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:10px 14px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);background:var(--bg)}
+.tlegend button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:2px 4px;border-radius:6px}
+.tlegend button:focus-visible{outline:2px solid var(--accent)}
+.tlegend button[aria-pressed="false"]{opacity:.4;text-decoration:line-through}
+.tlegend .home{display:inline-flex;align-items:center;gap:6px;padding:2px 4px}
+.tlegend i{width:12px;height:12px;border-radius:50%;display:inline-block;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.tlegend .home i{border-radius:2px;transform:rotate(45deg);width:11px;height:11px}
+.tm-pop b{display:block;font-size:.85rem}.tm-pop span{display:block;font-size:.74rem;color:#5c6470}
+.tm-pop a{display:inline-block;margin-top:4px;font-size:.75rem;color:#1f6f54;font-weight:600;text-decoration:none}
+.tmap .leaflet-tooltip{padding:6px 9px;white-space:normal;min-width:120px;pointer-events:auto}
+.tlegend:empty{display:none}
+@media (max-width:760px){.tmap{height:340px}}
 </style>
 </head>
 <body>
@@ -632,10 +682,13 @@ svg.leaflet-zoom-animated{will-change:transform}
   </button>
 </header>
 
+<div class="wrap kolam" aria-hidden="true"></div>
+
 <nav class="tabsbar" aria-label="Sections">
   <div class="wrap tabs" id="tabs">
     <a href="#overview" aria-current="true">Overview</a>
     <a href="#about">About</a>
+    <a href="#journey">Journey</a>
     <a href="#images" data-mode="images">Images</a>
     <a href="#videos" data-mode="videos">Videos</a>
     <a href="#favourites">Favourites</a>
@@ -699,8 +752,6 @@ svg.leaflet-zoom-animated{will-change:transform}
           <div class="row"><dt>Nature</dt><dd>Jolly and cheerful; loves calm and nature</dd></div>
           <div class="row"><dt>Loves cooking</dt><dd>South Indian food</dd></div>
           <div class="row"><dt>Profiles</dt><dd><div class="socials">
-            <a class="soc" href="#" data-pending title="LinkedIn (link coming soon)" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
-            <a class="soc" href="#" data-pending title="Instagram (link coming soon)" aria-label="Instagram"><svg viewBox="0 0 24 24"><defs><linearGradient id="igg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".35" stop-color="#FA7E1E"/><stop offset=".6" stop-color="#D62976"/><stop offset=".8" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs><path fill="url(#igg)" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
             <a class="soc" href="https://github.com/rameshmca1410" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="#181717"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg></a>
             <a class="soc" href="mailto:rameshmca1410@gmail.com" title="Email" aria-label="Email"><svg viewBox="0 0 24 24"><path fill="#EA4335" d="M2 6.5 12 13l10-6.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path fill="#4285F4" d="M2 6.5V18a2 2 0 0 0 2 2h2V9.9z"/><path fill="#34A853" d="M22 6.5V18a2 2 0 0 1-2 2h-2V9.9z"/><path fill="#FBBC04" d="M6 9.9V20h12V9.9L12 13.8z" opacity=".25"/></svg></a>
           </div></dd></div>
@@ -708,6 +759,24 @@ svg.leaflet-zoom-animated{will-change:transform}
       </aside>
 </div>
       </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <div class="sec-h"><div><p class="eyebrow">My journey</p><h2>From Perumanallur to Chennai</h2><p class="tl-ta" lang="ta">ஊரிலிருந்து சென்னை வரை</p></div></div>
+      <ol class="tl">
+        <li><span class="yr">Early school</span><h3>Perumanallur government school</h3><p>First steps in school, right in his home village.</p></li>
+        <li><span class="yr">2003 – 2007</span><h3>Sakthi Vigneswara Kalvi Nilayam</h3><p>6th to 10th standard, back when the school was at Kanakkampalayam Pirivu.</p></li>
+        <li><span class="yr">2008 – 2009</span><h3>Hostel days at Shree Gurukulam</h3><p>11th and 12th, hostel life, and throwball at state and divisional level.</p></li>
+        <li><span class="yr">2009 – 2012</span><h3>B.Sc. Mathematics with CA, Erode</h3><p>College years at Nandha Arts and Science College.</p></li>
+        <li><span class="yr">2012 – 2015</span><h3>MCA in Coimbatore</h3><p>Master's at Kalaignar Karunanidhi Institute of Technology.</p></li>
+        <li class="big"><span class="yr">2015</span><h3>Moving to Chennai</h3><p>First job at Tech Mahindra, Ambattur. The Chennai floods changed plans soon after.</p></li>
+        <li><span class="yr">2017</span><h3>Hyderabad, then Bangalore</h3><p>A course in Secunderabad, then a new start at Sthira IT Solutions, including months at a client site in Puducherry.</p></li>
+        <li class="big"><span class="yr">2021</span><h3>Back to Chennai</h3><p>Joined Purpleslate as a Technology Engineer, working from Thiruvanmiyur.</p></li>
+        <li><span class="yr">2025</span><h3>A new home in Perumanallur</h3><p>The family moved into a new house back home.</p></li>
+        <li class="big"><span class="yr">18 May 2026</span><h3>Married Selvanayagam</h3><p>The start of a new chapter together.</p></li>
+      </ol>
     </div>
   </section>
 
@@ -737,6 +806,7 @@ svg.leaflet-zoom-animated{will-change:transform}
   <section id="places">
     <div class="wrap">
       <div class="sec-h"><div><p class="eyebrow">Travel</p><h2>Places he has visited</h2><p class="ptip">Tap any place to open its page</p></div><p class="ptotal"><b>21</b> places and counting</p></div>
+      <div class="tmap-wrap"><div class="tmap" id="tmap" role="region" aria-label="Map of places he has visited"></div><div class="tlegend" id="tlegend"></div></div>
       <div class="places">
         <div class="pgroup"><h3>Temples &amp; heritage<small>7</small></h3><ul><li><a class="plc" data-wiki="Brihadeeswarar_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Brihadeeswarar_Temple" target="_blank" rel="noopener"><span class="fimg"></span><div>Thanjavur Big Temple<span>Brihadeeswarar Temple</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Ranganathaswamy_Temple,_Srirangam" data-fill="1" href="https://en.wikipedia.org/wiki/Ranganathaswamy_Temple,_Srirangam" target="_blank" rel="noopener"><span class="fimg"></span><div>Srirangam<span>Trichy</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Meenakshi_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Madurai" target="_blank" rel="noopener"><span class="fimg"></span><div>Madurai</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Ramanathaswamy_Temple" data-fill="1" href="https://en.wikipedia.org/wiki/Rameswaram" target="_blank" rel="noopener"><span class="fimg"></span><div>Rameswaram</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Kanyakumari" data-fill="1" href="https://en.wikipedia.org/wiki/Kanyakumari" target="_blank" rel="noopener"><span class="fimg"></span><div>Kanyakumari</div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Mysore_Palace" data-fill="1" href="https://en.wikipedia.org/wiki/Mysore_Palace" target="_blank" rel="noopener"><span class="fimg"></span><div>Mysore Palace<span>Mysuru, Karnataka</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Adiyogi_Shiva_bust" data-fill="1" href="https://en.wikipedia.org/wiki/Adiyogi_Shiva_bust" target="_blank" rel="noopener"><span class="fimg"></span><div>Isha Yoga Center<span>Adiyogi, Coimbatore</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
         <div class="pgroup"><h3>Hill stations<small>2</small></h3><ul><li><a class="plc" data-wiki="Ooty" data-fill="1" href="https://en.wikipedia.org/wiki/Ooty" target="_blank" rel="noopener"><span class="fimg"></span><div>Ooty<span>The Nilgiris</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li><li><a class="plc" data-wiki="Munnar" data-fill="1" href="https://en.wikipedia.org/wiki/Munnar" target="_blank" rel="noopener"><span class="fimg"></span><div>Munnar<span>Kerala</span></div><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li></ul></div>
@@ -780,6 +850,7 @@ svg.leaflet-zoom-animated{will-change:transform}
   </section>
 </main>
 
+<div class="wrap kolam" aria-hidden="true" style="margin-bottom:8px"></div>
 <footer class="wrap" style="border-top:1px solid var(--line)">
   <span>© Ramesh G</span>
   <span>Perumanallur, Tiruppur · Chennai</span>
@@ -1066,5 +1137,71 @@ var home=document.createComment('fav');fav.parentNode.insertBefore(home,fav);
 function place(){if(mq.matches){side.parentNode.insertBefore(fav,side.nextSibling);fav.classList.add('fav-moved');}else{home.parentNode.insertBefore(fav,home.nextSibling);fav.classList.remove('fav-moved');}}
 place();mq.addEventListener?mq.addEventListener('change',place):mq.addListener(place);})();
 </script>
+<script>
+/* travel map: built when it scrolls into view */
+(function(){
+  const el=document.getElementById('tmap'),lg=document.getElementById('tlegend');if(!el)return;
+  const W='https://en.wikipedia.org/wiki/';
+  const cats=[
+    ['Temples & heritage','#c2410c',[
+      ['Thanjavur Big Temple','Brihadeeswarar Temple',10.7828,79.1318,'Brihadeeswarar_Temple'],
+      ['Srirangam','Trichy',10.8627,78.6895,'Ranganathaswamy_Temple,_Srirangam'],
+      ['Madurai','Meenakshi Amman Temple',9.9195,78.1193,'Madurai'],
+      ['Rameswaram','Ramanathaswamy Temple',9.2881,79.3174,'Rameswaram'],
+      ['Kanyakumari','Southern tip of India',8.0780,77.5418,'Kanyakumari'],
+      ['Mysore Palace','Mysuru, Karnataka',12.3052,76.6552,'Mysore_Palace'],
+      ['Isha Yoga Center','Adiyogi, Coimbatore',10.9724,76.7400,'Adiyogi_Shiva_bust']]],
+    ['Hill stations','#15803d',[
+      ['Ooty','The Nilgiris',11.4102,76.6950,'Ooty'],
+      ['Munnar','Kerala',10.0889,77.0595,'Munnar']]],
+    ['Dams & rivers','#0e7490',[
+      ['Aliyar Dam','Pollachi',10.4824,76.9714,'Aliyar_Reservoir'],
+      ['Kodiveri Dam','Gobichettipalayam',11.4826,77.3017,'Kodiveri_dam'],
+      ['Vaigai Dam','Theni',10.0547,77.5910,'Vaigai_Dam'],
+      ['Kallanai','Grand Anicut, Thanjavur',10.8317,78.8195,'Kallanai_Dam']]],
+    ['Chennai beaches','#2563eb',[
+      ['Marina Beach','Chennai',13.0500,80.2824,'Marina_Beach'],
+      ['Besant Nagar Beach','Chennai',12.9990,80.2717,"Elliot's_Beach"],
+      ['Thiruvanmiyur Beach','Chennai',12.9826,80.2707,'Thiruvanmiyur'],
+      ['Kovalam Beach','Chennai',12.7900,80.2520,'Kovalam,_Chennai']]],
+    ['Parks & fun','#9333ea',[
+      ['DakshinaChitra','Chennai',12.8236,80.2416,'DakshinaChitra'],
+      ['Vandalur Zoo','Chennai',12.8790,80.0818,'Arignar_Anna_Zoological_Park'],
+      ['Madurai Athisayam','Theme park',9.9935,78.0410,'Athisayam'],
+      ['Trichy Butterfly Park','Srirangam',10.8737,78.6700,'Tropical_butterfly_conservatory,_Trichy']]]
+  ];
+  const esc=t=>t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  let built=false;
+  function build(){
+    if(built)return;built=true;
+    if(!window.L){el.classList.add('none');el.textContent='21 places across South India';return;}
+    const map=L.map(el,{scrollWheelZoom:false,zoomSnap:.25});
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:18,subdomains:'abcd',
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OSM</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
+    const all=[];
+    cats.forEach(([name,color,list])=>{
+      const grp=L.layerGroup().addTo(map);
+      list.forEach(([t,sub,la,lo,wk])=>{
+        all.push([la,lo]);
+        L.circleMarker([la,lo],{radius:7,color:'#fff',weight:2,fillColor:color,fillOpacity:1}).addTo(grp)
+          .bindPopup('<div class="tm-pop"><b>'+esc(t)+'</b><span>'+esc(sub)+' · '+esc(name)+'</span><a href="'+W+encodeURIComponent(wk).replace(/%2C/g,',')+'" target="_blank" rel="noopener">Open page →</a></div>');
+      });
+      const b=document.createElement('button');b.type='button';b.setAttribute('aria-pressed','true');
+      b.innerHTML='<i style="background:'+color+'"></i>'+esc(name)+' ('+list.length+')';
+      b.onclick=()=>{const on=map.hasLayer(grp);on?map.removeLayer(grp):grp.addTo(map);b.setAttribute('aria-pressed',on?'false':'true');};
+      lg.appendChild(b);
+    });
+    L.marker([11.20458,77.36031],{icon:L.divIcon({className:'',html:'<div style="width:16px;height:16px;background:#d98e10;border:2px solid #fff;transform:rotate(45deg);box-shadow:0 1px 4px rgba(0,0,0,.35)"></div>',iconSize:[16,16],iconAnchor:[8,8]})})
+      .addTo(map).bindTooltip('<span class="mtip-s">Home · Perumanallur</span>',{direction:'top',offset:[0,-10]});
+    const h=document.createElement('span');h.className='home';h.innerHTML='<i style="background:#d98e10"></i>Home';lg.appendChild(h);
+    map.fitBounds(L.latLngBounds(all).pad(.08));
+    setTimeout(()=>map.invalidateSize(),200);
+  }
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){io.disconnect();build();}},{rootMargin:'300px'});io.observe(el);
+  }else build();
+})();
+</script>
+
 </body>
 </html>
